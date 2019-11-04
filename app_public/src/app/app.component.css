@@ -1,0 +1,11 @@
+.menu-spacer {
+  width: 20px;
+}
+
+.sidenav-expanded {
+  width: 200px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
