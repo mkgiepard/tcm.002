@@ -19,12 +19,14 @@ import {
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProjectCardComponent
   ],
   imports: [
     BrowserModule,
