@@ -1,0 +1,19 @@
+mat-card.active {
+  background-color: lightblue;
+}
+
+.blocked {
+  background-color: lightgoldenrodyellow;
+}
+
+.new {
+  background-color: white;
+}
+
+.panic {
+  background-color: red;
+}
+
+.closed {
+  background-color: grey;
+}

@@ -1,9 +1,7 @@
 <div class="wrapper">
-  <div><app-project-card></app-project-card></div>
-  <div><app-project-card></app-project-card></div>
-  <div><app-project-card></app-project-card></div>
-  <div><app-project-card></app-project-card></div>
-  <div><app-project-card></app-project-card></div>
-  <div><app-project-card></app-project-card></div>
-  <div><app-project-card></app-project-card></div>
+  <div *ngFor="let project of dataSource">
+    <app-project-card [project_name] = "project.name"
+                      [project_subtitle] = "project.subtitle"
+                      [project_status] = "project.status">
+    </app-project-card></div>
 </div>
