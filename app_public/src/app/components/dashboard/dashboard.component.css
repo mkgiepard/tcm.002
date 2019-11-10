@@ -4,3 +4,11 @@
   grid-gap: 10px;
   padding: 10px;
 }
+
+.row {
+  padding: 10px;
+}
+
+button {
+  width: 200px;
+}

@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 
 export interface Project {
-  name:  string;
+  name: string;
   subtitle: string;
   status: string;
 }
 
 const PROJECT_DATA: (Project)[] = [
-  {name: 'Project Red', subtitle: 'Regression tests', status: 'active'},
-  {name: 'Project Green', subtitle: 'Sanity tests', status: 'blocked'},
-  {name: 'Project Blue', subtitle: 'Regression tests', status: 'active'},
-  {name: 'Project Pink', subtitle: 'Customer acceptance tests', status: 'active'},
-  {name: 'Project White', subtitle: 'Regression tests', status: 'closed'},
-  {name: 'Project Black', subtitle: 'Regression tests', status: 'active'},
-  {name: 'Project Yellow', subtitle: 'Regression tests', status: 'panic'},
-  {name: 'Project Orange', subtitle: 'Integration tests', status: 'new'},
-  {name: 'Project Cyan', subtitle: 'Smoke tests', status: 'new'},
-  {name: 'Project Gray', subtitle: 'Sanity tests', status: 'new'},
-]
+  {name: 'Project A', subtitle: 'Regression tests', status: 'active'},
+  {name: 'Project B', subtitle: 'Sanity tests', status: 'blocked'},
+  {name: 'Project C', subtitle: 'Regression tests', status: 'active'},
+  {name: 'Project D', subtitle: 'Customer acceptance tests', status: 'active'},
+  {name: 'Project E', subtitle: 'Regression tests', status: 'closed'},
+  {name: 'Project F', subtitle: 'Regression tests', status: 'active'},
+  {name: 'Project G', subtitle: 'Regression tests', status: 'panic'},
+  {name: 'Project H', subtitle: 'Integration tests', status: 'new'},
+  {name: 'Project I', subtitle: 'Smoke tests', status: 'new'},
+  {name: 'Project J', subtitle: 'Sanity tests', status: 'new'},
+];
 
 @Component({
   selector: 'app-dashboard',
