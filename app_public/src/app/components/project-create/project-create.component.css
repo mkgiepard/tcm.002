@@ -17,6 +17,10 @@ mat-card {
     width: 100%;
 }
 
+.input-readonly {
+    background-color: lightgrey;
+}
+
 h1 {
     text-align: center;
 }

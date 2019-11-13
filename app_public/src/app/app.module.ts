@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { ProjectCreateComponent } from './components/project-create/project-create.component';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ProjectCreateComponent } from './components/project-create/project-crea
     AppComponent,
     DashboardComponent,
     ProjectCardComponent,
-    ProjectCreateComponent
+    ProjectCreateComponent,
+    ProjectListComponent
   ],
   imports: [
     BrowserModule,
