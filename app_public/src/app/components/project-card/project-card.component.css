@@ -1,19 +1,19 @@
-mat-card.active {
+mat-card.Active {
   border-top: 4px solid lightblue;
 }
 
-.blocked {
+.Blocked {
   border-top: 4px solid yellow;
 }
 
-.new {
+.New {
   border-top: 4px solid white;
 }
 
-.panic {
+.Panic {
   border-top: 4px solid red;
 }
 
-.closed {
+.Closed {
   border-top: 4px solid grey;
 }

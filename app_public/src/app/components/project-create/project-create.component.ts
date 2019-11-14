@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface Project {
-  name: string;
-  subtitle: string;
-  status: string;
-}
+import { Project } from '../../models/project';
 
 @Component({
   selector: 'app-project-create',
