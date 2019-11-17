@@ -22,6 +22,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { ProjectCreateComponent } from './components/project-create/project-create.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
+import { TestPlanViewComponent } from './components/test-plan-view/test-plan-view.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ProjectListComponent } from './components/project-list/project-list.com
     DashboardComponent,
     ProjectCardComponent,
     ProjectCreateComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    TestPlanViewComponent
   ],
   imports: [
     BrowserModule,
