@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Project, PROJECT_DATA } from '../../models/project';
+import { Project, PROJECT_DATA } from '../../models/project.model';
 
 @Component({
   selector: 'app-dashboard',
