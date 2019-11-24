@@ -25,7 +25,7 @@ export interface TestCaseGroup {
 export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
     {groupIndex: '1.1', groupName: 'Functional > CUJ', isGroupBy: true},
     {index: 1, title: 'Verify if a User can sign in with a newly created account', priority: 'P0', status: 'NEW',
-     steps: 'Preconditions: xxxxxxxxxxxxxxxxxxxx; \nStep 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc'},
+     steps: 'Preconditions: xxxxxxxxxxxxxxxxxxxx;\n\nStep 1: aaaaaaaa;\nStep 2: bbbbbbbb;\nStep 3: ccccccc'},
     {index: 2, title: 'Verify if already created User can sign in', priority: 'P1', status: 'NEW',
     steps: 'Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc'},
     {groupIndex: '1.2', groupName: 'Functional > non CUJ', isGroupBy: true},
