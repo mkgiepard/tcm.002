@@ -14,7 +14,8 @@ import {
   MatFormFieldModule, 
   MatInputModule, 
   MatCardModule, 
-  MatTableModule 
+  MatTableModule,
+  MatRadioModule 
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +24,7 @@ import { ProjectCardComponent } from './components/project-card/project-card.com
 import { ProjectCreateComponent } from './components/project-create/project-create.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { TestPlanViewComponent } from './components/test-plan-view/test-plan-view.component';
+import { TestPlanCreateComponent } from './components/test-plan-create/test-plan-create.component';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { TestPlanViewComponent } from './components/test-plan-view/test-plan-vie
     ProjectCardComponent,
     ProjectCreateComponent,
     ProjectListComponent,
-    TestPlanViewComponent
+    TestPlanViewComponent,
+    TestPlanCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import { TestPlanViewComponent } from './components/test-plan-view/test-plan-vie
     MatFormFieldModule, 
     MatCardModule, 
     MatTableModule, 
+    MatRadioModule,
     BrowserAnimationsModule
   ],
   providers: [],
