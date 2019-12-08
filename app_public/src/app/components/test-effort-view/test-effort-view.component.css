@@ -1,0 +1,89 @@
+.wrapper {
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
+  font-family: 'Lato';
+}
+
+mat-cell {
+  padding: 4px 0;
+}
+
+tr.mat-row {
+  height: 32px;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.element-row:not(.expanded-row):hover {
+  background: #ddd;
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.element-description {
+  padding: 4px 16px;
+}
+
+.element-group {
+  font-weight: 900;
+}
+
+pre {
+  font-family: inherit;
+}
+.passed {
+  color: green;
+}
+
+.failed {
+  color: red;
+}
+
+.blocked {
+  color: orange;
+}
+
+.skipped {
+  color: gray;
+}
+
+.new {
+  color: lightblue;
+}
+
+.cell-center {
+  text-align: center;
+}
+
+.comment {
+  width: 95%;
+}
+
+.mat-column-status {
+  text-align: center;
+}
+
+.mat-column-comment {
+  width: 20%;
+}
+
+.mat-column-title:hover {
+  cursor: pointer;
+}

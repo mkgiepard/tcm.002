@@ -22,6 +22,7 @@
     </div>
   </mat-card>
   </div>
+  <div>
     <mat-card>
       <div><h2>TestCase editor</h2></div>
       <mat-divider></mat-divider>
@@ -71,6 +72,9 @@
         </div>
       </div>
     </mat-card>
+  </div>
+  <div>
+    <mat-card>
     <table mat-table [dataSource]="testCaseData" multiTemplateDataRows class="w100">
       <ng-container matColumnDef="index">
         <th mat-header-cell *matHeaderCellDef>Index</th>
@@ -113,6 +117,8 @@
       </ng-container>
       <tr mat-row *matRowDef="let row; columns: ['groupHeader']; when: isGroup"> </tr>
     </table>
+  </mat-card>
+  </div>
 
     <!-- TODO: https://stackblitz.com/edit/angular-material-addrow-example -->
   </div>
