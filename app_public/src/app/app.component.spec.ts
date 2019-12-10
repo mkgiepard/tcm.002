@@ -1,4 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
+import { AppMaterialModule } from './app.material.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -7,6 +10,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [AppMaterialModule, RouterTestingModule, NoopAnimationsModule]
     }).compileComponents();
   }));
 
@@ -16,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'tcm-public'`, () => {
+  it(`should have as title 'tcm.zero'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('tcm-public');
+    expect(app.title).toEqual('tcm.zero');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('tcm-public app is running!');
+    expect(compiled.querySelector('h1').textContent).toContain('tcm.zero');
   });
 });

@@ -5,19 +5,8 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import {
-  MatToolbarModule,
-  MatIconModule, 
-  MatSidenavModule, 
-  MatListModule,
-  MatButtonModule, 
-  MatFormFieldModule, 
-  MatInputModule, 
-  MatCardModule, 
-  MatTableModule,
-  MatRadioModule 
-} from '@angular/material';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AppMaterialModule } from './app.material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
@@ -44,17 +33,8 @@ import { TestEffortViewComponent } from './components/test-effort-view/test-effo
     AppRoutingModule,
     FormsModule, 
     ReactiveFormsModule, 
-    MatInputModule,
-    CommonModule, 
-    MatButtonModule,
-    MatToolbarModule, 
-    MatIconModule, 
-    MatSidenavModule, 
-    MatListModule, 
-    MatFormFieldModule, 
-    MatCardModule, 
-    MatTableModule, 
-    MatRadioModule,
+    CommonModule,
+    AppMaterialModule, 
     BrowserAnimationsModule
   ],
   providers: [],

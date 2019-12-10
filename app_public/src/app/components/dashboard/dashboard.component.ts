@@ -8,7 +8,8 @@ import { Project, PROJECT_DATA } from '../../models/project.model';
 })
 export class DashboardComponent implements OnInit {
   dataSource = PROJECT_DATA;
-
+  project_name: string;
+  
   constructor() { }
 
   ngOnInit() {

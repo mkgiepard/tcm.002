@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AppMaterialModule } from '../../app.material.module';
 import { TestEffortViewComponent } from './test-effort-view.component';
 
 describe('TestEffortViewComponent', () => {
@@ -8,7 +9,8 @@ describe('TestEffortViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestEffortViewComponent ]
+      declarations: [ TestEffortViewComponent ],
+      imports: [AppMaterialModule, NoopAnimationsModule]
     })
     .compileComponents();
   }));

@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AppMaterialModule } from '../../app.material.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TestPlanCreateComponent } from './test-plan-create.component';
 
 describe('TestPlanCreateComponent', () => {
@@ -8,7 +9,8 @@ describe('TestPlanCreateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestPlanCreateComponent ]
+      declarations: [ TestPlanCreateComponent ],
+      imports: [AppMaterialModule, NoopAnimationsModule]
     })
     .compileComponents();
   }));
