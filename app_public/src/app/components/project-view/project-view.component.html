@@ -1,9 +1,75 @@
 <div class="wrapper">
   <mat-card>
       <h1>Project View</h1>
-      Project details
-      Test Plans
-      Test Efforts
+      <h3>Project details</h3>
+      <div>
+        <p>Name: Testing project ABC</p>
+        <p>Status: Active</p>
+        <p>Autor: Mario de Tester</p>
+        <p>Created: 11-12-2019</p>
+      </div>
+      <h3>Test Plans</h3>
+      <div>
+        <table class="w100">
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Author</th>
+            <th>No. of tests</th>
+          </tr>
+          <tr>
+            <td>Test Plan for feature ABC</td>
+            <td>Active</td>
+            <td>Mario de Tester</td>
+            <td>42</td>
+          </tr>
+          <tr>
+            <td>Test Plan for feature XYZ</td>
+            <td>Active</td>
+            <td>Mario de Tester</td>
+            <td>365</td>
+          </tr>
+        </table>
+      </div>
+      <h3>Test Efforts</h3>
+      <div>
+        <table class="w100">
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Author</th>
+            <th>Total</th>
+            <th>Passed</th>
+            <th>Failed</th>
+            <th>Blocked</th>
+          </tr>
+          <tr>
+            <td>Test Plan for feature ABC</td>
+            <td>Active</td>
+            <td>Mario de Tester</td>
+            <td>42</td>
+            <td>10</td>
+            <td>2</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td>Test Plan for feature XYZ</td>
+            <td>Active</td>
+            <td>Mario de Tester</td>
+            <td>365</td>
+            <td>10</td>
+            <td>2</td>
+            <td>12</td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      <div class="actions w100">
+        <button mat-raised-button class="mat-primary">Create TestPlan</button>
+        <button mat-raised-button class="mat-primary">Create TestEffort</button>
+        <button mat-raised-button class="mat-primary">Edit</button>
+        <button mat-raised-button class="mat-secondary">Remove</button>
+      </div>
   </mat-card>
 </div>
 
