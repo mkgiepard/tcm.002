@@ -12,6 +12,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { ProjectCreateComponent } from './components/project-create/project-create.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
+import { ProjectEditComponent } from './components/project-edit/project-edit.component';
+import { ProjectViewComponent } from './components/project-view/project-view.component';
 import { TestPlanViewComponent } from './components/test-plan-view/test-plan-view.component';
 import { TestPlanCreateComponent } from './components/test-plan-create/test-plan-create.component';
 import { TestEffortViewComponent } from './components/test-effort-view/test-effort-view.component';
@@ -24,6 +26,8 @@ import { TestEffortViewComponent } from './components/test-effort-view/test-effo
     ProjectCardComponent,
     ProjectCreateComponent,
     ProjectListComponent,
+    ProjectEditComponent,
+    ProjectViewComponent,
     TestPlanViewComponent,
     TestPlanCreateComponent,
     TestEffortViewComponent
