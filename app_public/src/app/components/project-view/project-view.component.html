@@ -1,75 +1,108 @@
 <div class="wrapper">
   <mat-card>
-      <h1>Project View</h1>
-      <h3>Project details</h3>
-      <div>
-        <p>Name: Testing project ABC</p>
-        <p>Status: Active</p>
-        <p>Autor: Mario de Tester</p>
-        <p>Created: 11-12-2019</p>
-      </div>
-      <h3>Test Plans</h3>
-      <div>
-        <table class="w100">
-          <tr>
-            <th>Name</th>
-            <th>Status</th>
-            <th>Author</th>
-            <th>No. of tests</th>
-          </tr>
-          <tr>
-            <td>Test Plan for feature ABC</td>
-            <td>Active</td>
-            <td>Mario de Tester</td>
-            <td>42</td>
-          </tr>
-          <tr>
-            <td>Test Plan for feature XYZ</td>
-            <td>Active</td>
-            <td>Mario de Tester</td>
-            <td>365</td>
-          </tr>
-        </table>
-      </div>
-      <h3>Test Efforts</h3>
-      <div>
-        <table class="w100">
-          <tr>
-            <th>Name</th>
-            <th>Status</th>
-            <th>Author</th>
-            <th>Total</th>
-            <th>Passed</th>
-            <th>Failed</th>
-            <th>Blocked</th>
-          </tr>
-          <tr>
-            <td>Test Plan for feature ABC</td>
-            <td>Active</td>
-            <td>Mario de Tester</td>
-            <td>42</td>
-            <td>10</td>
-            <td>2</td>
-            <td>12</td>
-          </tr>
-          <tr>
-            <td>Test Plan for feature XYZ</td>
-            <td>Active</td>
-            <td>Mario de Tester</td>
-            <td>365</td>
-            <td>10</td>
-            <td>2</td>
-            <td>12</td>
-          </tr>
-        </table>
-      </div>
-      <br>
-      <div class="actions w100">
-        <button mat-raised-button class="mat-primary">Create TestPlan</button>
-        <button mat-raised-button class="mat-primary">Create TestEffort</button>
-        <button mat-raised-button class="mat-primary">Edit</button>
-        <button mat-raised-button class="mat-secondary">Remove</button>
-      </div>
+    <h1>Project View</h1>
+    <h3>Project details</h3>
+    <mat-card>
+      <p>Name: {{projectData.name}}</p>
+      <p>{{projectData.subtitle}}</p>
+      <p>Status: {{projectData.status}}</p>
+      <p>Autor: {{projectData.author}}</p>
+      <p>Created: {{projectData.create_date | date:'short'}}</p>
+    </mat-card>
+    <h3>Test Plans</h3>
+    <div>
+      <table mat-table [dataSource]="tpDataSource" class="mat-elevation-z8 w100">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Author Column -->
+        <ng-container matColumnDef="author">
+          <th mat-header-cell *matHeaderCellDef class="w-medium"> Author </th>
+          <td mat-cell *matCellDef="let element" class="w-medium"> {{element.author}} </td>
+        </ng-container>
+
+        <!-- Created Column -->
+        <ng-container matColumnDef="created">
+          <th mat-header-cell *matHeaderCellDef class="w-medium"> Created </th>
+          <td mat-cell *matCellDef="let element" class="w-medium">
+            {{element.create_date | date:'short'}} </td>
+        </ng-container>
+
+        <!-- No of test cases Column -->
+        <ng-container matColumnDef="total tests">
+          <th mat-header-cell *matHeaderCellDef class="w-medium"> No. of tests </th>
+          <td mat-cell *matCellDef="let element" class="w-medium"> {{element.testCases.length}}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="tpColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: tpColumns;"></tr>
+      </table>
+    </div>
+    <h3>Test Efforts</h3>
+    <div>
+      <table mat-table [dataSource]="teDataSource" class="mat-elevation-z8 w100">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Author Column -->
+        <ng-container matColumnDef="author">
+          <th mat-header-cell *matHeaderCellDef class="w-medium"> Author </th>
+          <td mat-cell *matCellDef="let element" class="w-medium"> {{element.author}} </td>
+        </ng-container>
+
+        <!-- Created Column -->
+        <ng-container matColumnDef="created">
+          <th mat-header-cell *matHeaderCellDef class="w-medium"> Created </th>
+          <td mat-cell *matCellDef="let element" class="w-medium">
+            {{element.create_date | date:'short'}} </td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef class="w-medium"> Status </th>
+          <td mat-cell *matCellDef="let element" class="w-medium"> {{element.status}} </td>
+        </ng-container>
+
+        <!-- Total Column -->
+        <ng-container matColumnDef="total">
+          <th mat-header-cell *matHeaderCellDef class="w-medium"> Total </th>
+          <td mat-cell *matCellDef="let element" class="w-medium"> {{element.total}} </td>
+        </ng-container>
+
+        <!-- Passed Column -->
+        <ng-container matColumnDef="passed">
+          <th mat-header-cell *matHeaderCellDef class="w-medium"> Passed </th>
+          <td mat-cell *matCellDef="let element" class="w-medium"> {{element.passed}} </td>
+        </ng-container>
+
+        <!-- Failed Column -->
+        <ng-container matColumnDef="failed">
+          <th mat-header-cell *matHeaderCellDef class="w-medium"> Failed </th>
+          <td mat-cell *matCellDef="let element" class="w-medium"> {{element.failed}} </td>
+        </ng-container>
+
+        <!-- Blocked Column -->
+        <ng-container matColumnDef="blocked">
+          <th mat-header-cell *matHeaderCellDef class="w-medium"> Blocked </th>
+          <td mat-cell *matCellDef="let element" class="w-medium"> {{element.blocked}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="teColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: teColumns;"></tr>
+      </table>
+    </div>
+    <br>
+    <div class="actions w100">
+      <button mat-raised-button class="mat-primary">Create TestPlan</button>
+      <button mat-raised-button class="mat-primary">Create TestEffort</button>
+      <button mat-raised-button class="mat-primary">Edit</button>
+      <button mat-raised-button class="mat-secondary">Remove</button>
+    </div>
   </mat-card>
 </div>
-
