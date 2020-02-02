@@ -11,6 +11,7 @@ import { TestPlanViewComponent } from './components/test-plan-view/test-plan-vie
 import { TestPlanCreateComponent } from './components/test-plan-create/test-plan-create.component';
 import { TestEffortViewComponent } from './components/test-effort-view/test-effort-view.component';
 import { TestEffortCreateComponent } from './components/test-effort-create/test-effort-create.component';
+import { TestEffortListComponent } from './components/test-effort-list/test-effort-list.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, data: { title: 'Dashboard Component' } },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'test-plan-view/:id', component: TestPlanViewComponent, data: { title: 'Test Plan View Component' } },
   { path: 'test-plan-create', component: TestPlanCreateComponent, data: { title: 'Test Plan Create Component' } },
   { path: 'test-effort-view/:id', component: TestEffortViewComponent, data: { title: 'Test Effort View Component' } },
-  { path: 'test-effort-create', component: TestEffortCreateComponent, data: { title: 'Test Effort Create Component' } }
+  { path: 'test-effort-create', component: TestEffortCreateComponent, data: { title: 'Test Effort Create Component' } },
+  { path: 'test-effort-list', component: TestEffortListComponent, data: { title: 'Test Effort List Component' } }
 ];
 
 @NgModule({
