@@ -62,3 +62,22 @@ export const TEST_PLAN_DATA: TestPlan = {
     create_date: new Date('2019-11-17'),
     testCases: TEST_CASES_DATA,
 };
+
+export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
+  {id: '1', name: 'Test Plan A.001', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+  {id: '2', name: 'Test Plan B.002', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+  {id: '3', name: 'Test Plan C.003', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+  {id: '4', name: 'Test Plan D.001', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+  {id: '5', name: 'Test Plan E.002', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+  {id: '6', name: 'Test Plan F.003', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+  {id: '7', name: 'Test Plan G.001', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+  {id: '8', name: 'Test Plan H.002', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+  {id: '9', name: 'Test Plan I.003', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+  {id: '10', name: 'Test Plan J.001', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+  {id: '11', name: 'Test Plan K.001', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+];
+
+export const TEST_PLAN_DATA_SELECTED: TestPlan[] = [
+{id: '1', name: 'Test Plan L.001', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+{id: '2', name: 'Test Plan M.002', author: 'Mario Bros', create_date: new Date('2019-11-17'), testCases: TEST_CASES_DATA},
+]

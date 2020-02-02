@@ -1,0 +1,100 @@
+<div class="wrapper">
+    <div class="event-details">
+        <mat-card>
+          <div class="card-content">
+            <h2>TestEffort Wizard</h2>
+            <div class="wrapper-justify">
+              <mat-form-field style="width:40%; padding-right:10px;">
+                <input matInput placeholder="TestEffort Name">
+              </mat-form-field>
+              <mat-form-field style="width:40%; padding-right:20px;">
+                <mat-label>Author:</mat-label>
+                <select matNativeControl required>
+                  <option value="0">-- Please Select --</option>
+                  <option value="1">Tester No1</option>
+                  <option value="2">Tester No2</option>
+                  <option value="3">Tester No3</option>
+                  <option value="4">Tester No4</option>
+                </select>
+              </mat-form-field>
+              <button mat-raised-button color="primary">SAVE</button>
+            </div>
+          </div>
+        </mat-card>
+    </div>
+    <div>
+      <mat-card>
+        <h4>Add Test Plans to the effort</h4> 
+        <mat-form-field class="w100">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+        <table mat-table [dataSource]="tpDataSource" class="mat-elevation-z8 w100">   
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+          
+            <!-- Author Column -->
+            <ng-container matColumnDef="author">
+                <th mat-header-cell *matHeaderCellDef class="w-medium"> Author </th>
+                <td mat-cell *matCellDef="let element" class="w-medium"> {{element.author}} </td>
+            </ng-container>
+            
+            <!-- Total tests Column -->
+            <ng-container matColumnDef="total tests">
+                <th mat-header-cell *matHeaderCellDef class="w-medium"> No of tests </th>
+                <td mat-cell *matCellDef="let element" class="w-medium"> {{element.testCases.length}} </td>
+            </ng-container>
+            
+            <!-- Author Column -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef class="w-medium"> Action </th>
+                <td mat-cell *matCellDef="let element" class="w-medium">
+                    <button mat-raised-button class="mat-primary" routerLink="">ADD</button>
+                </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="tpColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: tpColumns;"></tr>
+        </table>
+      </mat-card>
+    </div>
+    <div>
+        <mat-card>
+            <h4>Test Plans Selected</h4> 
+            <table mat-table [dataSource]="tpSelectedDataSource" class="mat-elevation-z8 w100">   
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+              
+                <!-- Author Column -->
+                <ng-container matColumnDef="author">
+                    <th mat-header-cell *matHeaderCellDef class="w-medium"> Author </th>
+                    <td mat-cell *matCellDef="let element" class="w-medium"> {{element.author}} </td>
+                </ng-container>
+                
+                <!-- Total tests Column -->
+                <ng-container matColumnDef="total tests">
+                    <th mat-header-cell *matHeaderCellDef class="w-medium"> No of tests </th>
+                    <td mat-cell *matCellDef="let element" class="w-medium"> {{element.testCases.length}} </td>
+                </ng-container>
+                
+                <!-- Author Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef class="w-medium"> Action </th>
+                    <td mat-cell *matCellDef="let element" class="w-medium">
+                        <button mat-raised-button class="mat-primary" routerLink="">REMOVE</button>
+                    </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="tpColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: tpColumns;"></tr>
+            </table>
+            </mat-card>
+      </div>   
+    <!-- TODO: https://stackblitz.com/edit/angular-material-addrow-example -->
+</div>
+  

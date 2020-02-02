@@ -17,6 +17,7 @@ import { ProjectViewComponent } from './components/project-view/project-view.com
 import { TestPlanViewComponent } from './components/test-plan-view/test-plan-view.component';
 import { TestPlanCreateComponent } from './components/test-plan-create/test-plan-create.component';
 import { TestEffortViewComponent } from './components/test-effort-view/test-effort-view.component';
+import { TestEffortCreateComponent } from './components/test-effort-create/test-effort-create.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { TestEffortViewComponent } from './components/test-effort-view/test-effo
     ProjectViewComponent,
     TestPlanViewComponent,
     TestPlanCreateComponent,
-    TestEffortViewComponent
+    TestEffortViewComponent,
+    TestEffortCreateComponent
   ],
   imports: [
     BrowserModule,
