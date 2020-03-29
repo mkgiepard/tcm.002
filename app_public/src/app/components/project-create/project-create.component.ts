@@ -11,33 +11,44 @@ import { Router } from '@angular/router';
 })
 export class ProjectCreateComponent implements OnInit {
   createForm: FormGroup;
-  project: Project;
+  public project: Project;
+  public id: number;
+  public savingProject = false;
 
   constructor(
     private projectService: ProjectService,
     private fb: FormBuilder, 
-    private router: Router) {
-      this.createForm = this.fb.group({
-        name: ["", Validators.required],
-        subtitle: "",
-        author: "",
-        status: "NEW",
-        create_date: new Date(),
-      });
-     }
+    private router: Router) {}
 
   ngOnInit() {
+    this.createNewProjectIntance(this.projectService.getLastId());
+    this.createForm = this.fb.group({
+      name: [this.project.name, Validators.required],
+      subtitle: this.project.subtitle,
+      author: this.project.author,
+      status: this.project.status,
+      create_date: this.project.create_date,
+    });
   }
 
-  addProject(name, subtitle, author) {
+  createNewProjectIntance(numProjects: number) {
+    const projectId = numProjects + 1;
     this.project = {
-      name: name,
-      subtitle: subtitle,
-      author: author,
-      status: "NEW",
+      id: projectId,
+      name: '',
+      subtitle: '',
+      author: 'Jon Deo',
+      status: 'NEW',
       create_date: new Date()
     }
-    this.projectService.addProject(name, subtitle, author);
+  }
+
+  addNewProject(project) {
+    this.project.name = project.name;
+    this.project.subtitle = project.subtitle;
+    this.savingProject = true;
+    this.projectService.addProject(this.project);
+    this.savingProject = false;
     this.router.navigate(['/project-list']);
   }
 

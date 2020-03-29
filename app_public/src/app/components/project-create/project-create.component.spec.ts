@@ -18,24 +18,23 @@ describe('ProjectCreateComponent', () => {
 
   const projectServiceStub = {
     project: {
+      id: 1,
       name: 'testing',
       subtitle: 'subtitle-testing',
       author: 'joe deo',
     },
 
-    addProject: async function(name: string, subtitle: string, author: string) {
-      component.project = {
-        name: name,
-        subtitle: subtitle,
-        author: author,
-        status: "NEW",
-        create_date: new Date()
-      }
+    addProject: async function(project) {
+      component.project = project;
     },
 
     getProjectByName: async function(name: string) {
       component.project = this.project;
       return this.project;
+    },
+
+    getLastId: async function() {
+      return 1;
     }
   };
 

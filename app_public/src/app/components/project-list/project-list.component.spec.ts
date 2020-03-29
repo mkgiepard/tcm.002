@@ -36,13 +36,14 @@ describe('ProjectListComponent', () => {
     expect(component.projects.length).toBe(0);
   });
 
-  it('should be contacts if there are data', () => {
+  it('should be projects if there are data', () => {
     const newProject: Project = {
-       name: 'Project A',
-       subtitle: 'Sanity tests',
-       status: 'New', 
-       author: 'Mario Bros', 
-       create_date: new Date('2019.11.12')
+      id: 999,
+      name: 'Project A',
+      subtitle: 'Sanity tests',
+      status: 'New', 
+      author: 'Mario Bros', 
+      create_date: new Date('2019.11.12')
     };
     component.projects = [newProject];
     expect(component.projects.length).toBe(1);

@@ -9,30 +9,27 @@ export class ProjectService {
 
   constructor() { }
 
-  getProjects() {
+  public getProjects() {
     return PROJECT_DATA;
   }
 
-  getProjectById(id) {
+  public getLastId() {
+    return PROJECT_DATA.length;
+  }
+
+  public getProjectById(id) {
     // TODO: add 'id' to Project model
     return null;
   }
 
-  getProjectByName(name) {
+  public getProjectByName(name) {
     PROJECT_DATA.forEach(element => {
       if (element.name === name) return element;
     });
     return null;
   }
 
-  addProject(name, subtitle, author) {
-    const project = {
-      name: name,
-      subtitle: subtitle,
-      author: author,
-      status: "NEW",
-      create_date: new Date()
-    }
+  public addProject(project) {
     PROJECT_DATA.push(project);
   }
 }

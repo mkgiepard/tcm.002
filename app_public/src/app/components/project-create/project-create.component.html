@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="project && !savingProject">
     <mat-card>
         <h1>Create New Project</h1>
         <form [formGroup]="createForm" class="edit-form">
@@ -6,20 +6,20 @@
                 <input matInput placeholder="Project Name" formControlName="name" #name>
             </mat-form-field>  
             <mat-form-field class="w100">
-                <input matInput placeholder="Description" fromControlName="subtitle" #subtitle>
+                <input matInput placeholder="Description" formControlName="subtitle" #subtitle>
             </mat-form-field>
             <mat-form-field class="w100">
-                    <input matInput placeholder="Status" value="New" readonly>
+                <input matInput placeholder="Status" value="New" readonly #status>
             </mat-form-field>
             <mat-form-field class="w100">
-                    <input matInput placeholder="Author" value="Tom Jerry" readonly fromControlName="author" #author>
+                <input matInput placeholder="Author" value="Tom Jerry" readonly fromControlName="author" #author>
             </mat-form-field>
             <mat-form-field class="w100">
-                    <input matInput placeholder="Date" value="11.12.2019" readonly>
+                <input matInput placeholder="Date" value="{{project.create_date | date:'short'}}" readonly>
             </mat-form-field>
             <button
               type="submit"
-              (click)="addProject(name.value, subtitle.value, author.value)"
+              (click)="addNewProject(createForm.value)"
               [disabled]="createForm.pristine || createForm.invalid"
               mat-raised-button class="mat-primary">
               Save
