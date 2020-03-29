@@ -1,23 +1,29 @@
 <div class="wrapper">
     <mat-card>
         <h1>Create New Project</h1>
-        <form class="edit-form">
+        <form [formGroup]="createForm" class="edit-form">
             <mat-form-field class="w100">
-                <input matInput placeholder="Project Name">
+                <input matInput placeholder="Project Name" formControlName="name" #name>
             </mat-form-field>  
             <mat-form-field class="w100">
-                <input matInput placeholder="Description">
+                <input matInput placeholder="Description" fromControlName="subtitle" #subtitle>
             </mat-form-field>
             <mat-form-field class="w100">
                     <input matInput placeholder="Status" value="New" readonly>
             </mat-form-field>
             <mat-form-field class="w100">
-                    <input matInput placeholder="Author" value="Tom Jerry" readonly>
+                    <input matInput placeholder="Author" value="Tom Jerry" readonly fromControlName="author" #author>
             </mat-form-field>
             <mat-form-field class="w100">
                     <input matInput placeholder="Date" value="11.12.2019" readonly>
             </mat-form-field>
-            <button mat-raised-button class="mat-primary">Save</button>
+            <button
+              type="submit"
+              (click)="addProject(name.value, subtitle.value, author.value)"
+              [disabled]="createForm.pristine || createForm.invalid"
+              mat-raised-button class="mat-primary">
+              Save
+            </button>
         </form>
     </mat-card>
 </div>

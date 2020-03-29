@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Project, PROJECT_DATA } from '../../models/project.model';
+import { Project } from '../../models/project.model';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-project-list',
@@ -9,11 +10,19 @@ import { Project, PROJECT_DATA } from '../../models/project.model';
 })
 export class ProjectListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'subtitle', 'status', 'author', 'action'];
-  dataSource = new MatTableDataSource(PROJECT_DATA);
+  projects: Project[];
+  dataSource = new MatTableDataSource();
 
-  constructor() { }
+  constructor(private projectService: ProjectService) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.fetchProjects();
+  }
+
+  fetchProjects() {
+    this.projects = this.projectService.getProjects();
+    this.dataSource.data = this.projects;
+  }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

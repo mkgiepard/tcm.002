@@ -6,7 +6,7 @@ export interface Project {
     create_date: Date;
   }
 
-export const PROJECT_DATA: Project[] = [
+export let PROJECT_DATA: Project[] = [
     {name: 'Project A', subtitle: 'Sanity tests', status: 'New', author: 'Mario Bros', create_date: new Date('2019.11.12')},
     {name: 'Project B', subtitle: 'Regression tests', status: 'Active', author: 'Jon Snow', create_date: new Date('2019.11.12')},
     {name: 'Project C', subtitle: 'Customer acceptance tests', status: 'Blocked', author: 'Red Dragon', create_date: new Date('2019.11.12')},
