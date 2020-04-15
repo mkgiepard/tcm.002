@@ -9,27 +9,42 @@ export class ProjectService {
 
   constructor() { }
 
-  public getProjects() {
+  getProjects() {
     return PROJECT_DATA;
   }
 
-  public getLastId() {
+  getLastId() {
     return PROJECT_DATA.length;
   }
 
-  public getProjectById(id) {
-    // TODO: add 'id' to Project model
-    return null;
-  }
-
-  public getProjectByName(name) {
+  getProjectById(id) {
+    let result = null;
     PROJECT_DATA.forEach(element => {
-      if (element.name === name) return element;
+      if (element.id === id) result = element;
     });
-    return null;
+    return result;
   }
 
-  public addProject(project) {
+  getProjectByName(name) {
+    let result = null;
+    PROJECT_DATA.forEach(element => {
+      if (element.name === name) result = element;
+    });
+    return result;
+  }
+
+  addProject(project) {
+    PROJECT_DATA.push(project);
+  }
+
+  updateProject(project) {
+    let index = -1;
+    PROJECT_DATA.forEach(element => {
+      if (element.id === project.id) {
+        index = PROJECT_DATA.indexOf(element);
+      }
+    });
+    if (index > -1) PROJECT_DATA.splice(index, 1);
     PROJECT_DATA.push(project);
   }
 }

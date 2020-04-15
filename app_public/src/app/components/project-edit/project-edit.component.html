@@ -1,24 +1,26 @@
 <div class="wrapper">
   <mat-card>
       <h1>Edit Project</h1>
-      <form class="edit-form">
+      <form [formGroup]="updateForm" class="edit-form">
           <mat-form-field class="w100">
-              <input matInput placeholder="Project Name" value="Exmeplary project name">
+            <input matInput placeholder="Project Name" formControlName="name" #name>
           </mat-form-field>  
           <mat-form-field class="w100">
-              <input matInput placeholder="Description" value="Exemplary project description">
+            <input matInput placeholder="Description" formControlName="subtitle" #subtitle>
           </mat-form-field>
           <mat-form-field class="w100">
-                  <input matInput placeholder="Status" value="New">
+            <input matInput placeholder="Status" formControlName="status" #status>
           </mat-form-field>
           <mat-form-field class="w100">
-                  <input matInput placeholder="Author" value="Tom Jerry" readonly>
+            <input matInput placeholder="Author" formControlName="author" #author readonly>
           </mat-form-field>
           <mat-form-field class="w100">
-                  <input matInput placeholder="Date" value="11.12.2019" readonly>
+            <input matInput placeholder="Date" formControlName="create_date" readonly>
           </mat-form-field>
-          <button mat-raised-button class="mat-primary">Save</button>
-          <button mat-raised-button class="mat-primary">Cancel</button>
+          <button type="submit" (click)="updateProject(updateForm.value)" mat-raised-button class="mat-primary">Save</button>
+          <a routerLink="/project-list">
+            <button mat-raised-button class="mat-primary">Cancel</button>
+          </a>
       </form>
   </mat-card>
 </div>
