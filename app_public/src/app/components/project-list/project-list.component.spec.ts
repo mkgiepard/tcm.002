@@ -3,6 +3,7 @@ import { AppMaterialModule } from '../../app.material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectListComponent } from './project-list.component';
 import { Project } from '../../models/project.model';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ProjectListComponent', () => {
   let component: ProjectListComponent;
@@ -11,7 +12,7 @@ describe('ProjectListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ProjectListComponent ],
-      imports: [AppMaterialModule, NoopAnimationsModule]
+      imports: [AppMaterialModule, NoopAnimationsModule, RouterTestingModule]
     })
     .compileComponents();
   }));
