@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppMaterialModule } from '../../app.material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectListComponent } from './project-list.component';
-import { Project } from '../../models/project.model';
+import { Project, PROJECT_DATA } from '../../models/project.model';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ProjectListComponent', () => {
@@ -48,5 +48,12 @@ describe('ProjectListComponent', () => {
     };
     component.projects = [newProject];
     expect(component.projects.length).toBe(1);
+  });
+
+  it('should remove project if user calls deleteProject(id)', () => {
+    component.projects = PROJECT_DATA;
+    expect(component.projects.length).toBe(16);
+    component.deleteProject(1);
+    expect(component.projects.length).toBe(15);
   });
 });
