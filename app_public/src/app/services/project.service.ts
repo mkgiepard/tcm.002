@@ -47,4 +47,13 @@ export class ProjectService {
     if (index > -1) PROJECT_DATA.splice(index, 1);
     PROJECT_DATA.push(project);
   }
+
+  deleteProject(id: Number): void {
+    for (let i = 0; i < PROJECT_DATA.length; i++) {
+      if (PROJECT_DATA[i].id === id) {
+        PROJECT_DATA.splice(i, 1);
+        break;
+      }
+    }
+  }
 }

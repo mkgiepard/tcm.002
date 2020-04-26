@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-list',
@@ -13,7 +14,10 @@ export class ProjectListComponent implements OnInit {
   projects: Project[];
   dataSource = new MatTableDataSource();
 
-  constructor(private projectService: ProjectService) { }
+  constructor(
+    private projectService: ProjectService,
+    private router: Router
+  ) { }
 
   ngOnInit() { 
     this.fetchProjects();
@@ -28,4 +32,8 @@ export class ProjectListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  deleteProject(id): void {
+    this.projectService.deleteProject(Number(id));
+    this.fetchProjects();
+  }
 }
