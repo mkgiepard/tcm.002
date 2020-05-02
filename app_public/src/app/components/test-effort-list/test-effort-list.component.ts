@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TEST_EFFORT_DATA } from '../../models/test-effort.model';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-test-effort-list',

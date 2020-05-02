@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { TEST_PLAN_DATA_MULTI, TEST_PLAN_DATA_SELECTED } from '../../models/test-plan.model';
 
 @Component({

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PROJECT_DATA } from '../../models/project.model';
 import { TEST_PLAN_DATA } from '../../models/test-plan.model';
 import { TEST_EFFORT_DATA } from '../../models/test-effort.model';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-project-view',

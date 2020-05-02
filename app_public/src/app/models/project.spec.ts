@@ -1,5 +1,5 @@
 import ProjectClass from './project';
-import { MatCardSubtitle } from '@angular/material';
+import { MatCardSubtitle } from '@angular/material/card';
 
 describe('ProjectClass test', () => {
     let project: ProjectClass = null;

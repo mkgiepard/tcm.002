@@ -9,7 +9,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
 import { RouterTestingModule } from '@angular/router/testing';
-import { throwToolbarMixedModesError } from '@angular/material';
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 
 describe('ProjectCreateComponent', () => {
   let component: ProjectCreateComponent;
