@@ -5,3 +5,15 @@
 .w100 {
   width: 100%;  
 }
+
+.icon-box {
+  display:inline-block;
+  color: gray;
+  cursor: pointer;
+  padding-left: 16px;
+  vertical-align: inherit;
+}
+
+a {
+  color: inherit;
+}
