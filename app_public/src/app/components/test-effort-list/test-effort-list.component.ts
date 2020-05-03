@@ -9,7 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class TestEffortListComponent implements OnInit {
   teColumns: string[] = 
-    ['name', 'author', 'created', 'status', 'total', 'passed', 'failed', 'blocked'];  
+    ['name', 'author', 'created', 'status', 'total', 'passed', 'failed', 'blocked', 'action'];  
   teDataSource = new MatTableDataSource(TEST_EFFORT_DATA);
 
   constructor() { }
