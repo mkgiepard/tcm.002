@@ -8,7 +8,7 @@
             <!-- Name Column -->
             <ng-container matColumnDef="name">
               <th mat-header-cell *matHeaderCellDef> Name </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              <td mat-cell *matCellDef="let element" class="td-link" routerLink="/test-effort-view/{{element.id}}"> {{element.name}} </td>
             </ng-container>
     
             <!-- Author Column -->
@@ -63,7 +63,7 @@
               </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="teColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: teColumns;"></tr>
+            <tr mat-row *matRowDef="let row; columns: teColumns;" class="tr-link"></tr>
           </table>
     </mat-card>
 </div>    

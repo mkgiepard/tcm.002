@@ -17,3 +17,8 @@
 a {
   color: inherit;
 }
+
+.tr-link:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
