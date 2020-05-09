@@ -42,12 +42,21 @@
           <input matInput placeholder="TestGroup Name">
         </mat-form-field>
         <div class="wrapper-right">
-          <button mat-raised-button color="primary">SAVE</button>
+          <button mat-raised-button color="primary">ADD</button>
         </div>
       </div>
       <mat-divider></mat-divider>
       <div class="box">
         <p>Create new TestCase</p>
+        <mat-form-field class="w100">
+          <mat-label>TestCaseGroup:</mat-label>
+          <select matNativeControl required>
+            <option value="1">TestCaseGroup No1</option>
+            <option value="2">TestCaseGroup No2</option>
+            <option value="3">TestCaseGroup No3</option>
+            <option value="4">TestCaseGroup No4</option>
+            </select>
+        </mat-form-field>
         <mat-form-field class="w100">
           <input matInput placeholder="TestCase Title">
         </mat-form-field>
@@ -68,7 +77,7 @@
           <textarea matInput placeholder="Description" rows=10></textarea>
         </mat-form-field>
         <div class="wrapper-right">
-          <button mat-raised-button color="primary">SAVE</button>
+          <button mat-raised-button color="primary">ADD</button>
         </div>
       </div>
     </mat-card>
