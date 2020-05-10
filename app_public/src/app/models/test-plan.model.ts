@@ -71,7 +71,7 @@ export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
     steps:
       "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
   },
-  { groupIndex: "2", groupName: "Layout", isGrśoupBy: true },
+  { groupIndex: "2", groupName: "Layout", isGroupBy: true },
   {
     index: 1,
     title: "Verify create bubble with long strings",
