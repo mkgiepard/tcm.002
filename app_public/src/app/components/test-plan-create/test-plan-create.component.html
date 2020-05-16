@@ -1,26 +1,26 @@
 <div class="wrapper">
   <div class="event-details">
-  <mat-card>
-    <div class="card-content">
-      <h2>TestPlan editor</h2>
-      <div class="wrapper-justify">
-        <mat-form-field style="width:40%; padding-right:10px;">
-          <input matInput placeholder="TestPlan Name">
-        </mat-form-field>
-        <mat-form-field style="width:40%; padding-right:20px;">
-          <mat-label>Author:</mat-label>
-          <select matNativeControl required>
-            <option value="0">-- Please Select --</option>
-            <option value="1">Tester No1</option>
-            <option value="2">Tester No2</option>
-            <option value="3">Tester No3</option>
-            <option value="4">Tester No4</option>
-          </select>
-        </mat-form-field>
-        <button mat-raised-button color="primary">SAVE</button>
+    <mat-card>
+      <div class="card-content">
+        <h2>TestPlan editor</h2>
+        <div class="wrapper-justify">
+          <mat-form-field style="width: 40%; padding-right: 10px;">
+            <input matInput placeholder="TestPlan Name" />
+          </mat-form-field>
+          <mat-form-field style="width: 40%; padding-right: 20px;">
+            <mat-label>Author:</mat-label>
+            <select matNativeControl required>
+              <option value="0">-- Please Select --</option>
+              <option value="1">Tester No1</option>
+              <option value="2">Tester No2</option>
+              <option value="3">Tester No3</option>
+              <option value="4">Tester No4</option>
+            </select>
+          </mat-form-field>
+          <button mat-raised-button color="primary">SAVE</button>
+        </div>
       </div>
-    </div>
-  </mat-card>
+    </mat-card>
   </div>
   <div>
     <mat-card>
@@ -36,13 +36,15 @@
             <option value="2">TestCaseGroup No2</option>
             <option value="3">TestCaseGroup No3</option>
             <option value="4">TestCaseGroup No4</option>
-            </select>
+          </select>
         </mat-form-field>
         <mat-form-field class="w100">
-          <input matInput placeholder="TestGroup Name">
+          <input matInput placeholder="TestGroup Name" />
         </mat-form-field>
         <div class="wrapper-right">
-          <button mat-raised-button color="primary">ADD</button>
+          <button mat-raised-button color="primary" (click)="addGroup()">
+            ADD
+          </button>
         </div>
       </div>
       <mat-divider></mat-divider>
@@ -55,79 +57,120 @@
             <option value="2">TestCaseGroup No2</option>
             <option value="3">TestCaseGroup No3</option>
             <option value="4">TestCaseGroup No4</option>
-            </select>
+          </select>
         </mat-form-field>
         <mat-form-field class="w100">
-          <input matInput placeholder="TestCase Title">
+          <input matInput placeholder="TestCase Title" />
         </mat-form-field>
         <div class="label-spacer">
           <label>TestCase priority</label>
         </div>
-        <mat-radio-group aria-label="Select an option" class="w100 wrapper-justify">
-            <mat-radio-button value="0">P0</mat-radio-button>
-            <mat-radio-button value="1">P1</mat-radio-button>
-            <mat-radio-button value="2" checked>P2</mat-radio-button>
-            <mat-radio-button value="3">P3</mat-radio-button>
-            <mat-radio-button value="4">P4</mat-radio-button>
-          </mat-radio-group>
+        <mat-radio-group
+          aria-label="Select an option"
+          class="w100 wrapper-justify"
+        >
+          <mat-radio-button value="0">P0</mat-radio-button>
+          <mat-radio-button value="1">P1</mat-radio-button>
+          <mat-radio-button value="2" checked>P2</mat-radio-button>
+          <mat-radio-button value="3">P3</mat-radio-button>
+          <mat-radio-button value="4">P4</mat-radio-button>
+        </mat-radio-group>
         <mat-form-field class="w100">
-          <input matInput placeholder="Tags">
+          <input matInput placeholder="Tags" />
         </mat-form-field>
         <mat-form-field class="w100">
-          <textarea matInput placeholder="Description" rows=10></textarea>
+          <textarea matInput placeholder="Description" rows="10"></textarea>
         </mat-form-field>
         <div class="wrapper-right">
-          <button mat-raised-button color="primary">ADD</button>
+          <button mat-raised-button color="primary" (click)="addTestCase()">
+            ADD
+          </button>
         </div>
       </div>
     </mat-card>
   </div>
   <div>
     <mat-card>
-    <table mat-table [dataSource]="testCaseData" multiTemplateDataRows class="w100">
-      <ng-container matColumnDef="index">
-        <th mat-header-cell *matHeaderCellDef>Index</th>
-        <td mat-cell *matCellDef="let element">{{element.index}}</td>
-      </ng-container>
-      <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef>Title</th>
-        <td mat-cell *matCellDef="let element">{{element.title}}</td>
-      </ng-container>
-      <ng-container matColumnDef="priority">
+      <table
+        mat-table
+        [dataSource]="testCaseData"
+        multiTemplateDataRows
+        class="w100"
+      >
+        <ng-container matColumnDef="index">
+          <th mat-header-cell *matHeaderCellDef>Index</th>
+          <td mat-cell *matCellDef="let element">{{ element.index }}</td>
+        </ng-container>
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Title</th>
+          <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+        </ng-container>
+        <ng-container matColumnDef="priority">
           <th mat-header-cell *matHeaderCellDef>Priority</th>
-          <td mat-cell *matCellDef="let element">{{element.priority}}</td>
-      </ng-container>
-      <ng-container matColumnDef="status">
+          <td mat-cell *matCellDef="let element">{{ element.priority }}</td>
+        </ng-container>
+        <ng-container matColumnDef="status">
           <th mat-header-cell *matHeaderCellDef>Status</th>
-          <td mat-cell *matCellDef="let element">{{element.status}}</td>
-      </ng-container>
-      <ng-container matColumnDef="expandedDetail">
-          <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
-              <div class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-                  <div class="element-description"><pre>{{element.steps}}</pre></div>
+          <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+        </ng-container>
+        <ng-container matColumnDef="expandedDetail">
+          <td
+            mat-cell
+            *matCellDef="let element"
+            [attr.colspan]="columnsToDisplay.length"
+          >
+            <div
+              class="element-detail"
+              [@detailExpand]="
+                element == expandedElement ? 'expanded' : 'collapsed'
+              "
+            >
+              <div class="element-description">
+                <pre>{{ element.steps }}</pre>
               </div>
+            </div>
           </td>
-      </ng-container>
-      <ng-container matColumnDef="action">
+        </ng-container>
+        <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef>Action</th>
           <td mat-cell *matCellDef="let element">
             <button mat-button color="primary">Delete</button>
           </td>
-      </ng-container>
+        </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-      <tr mat-row *matRowDef="let element; columns: columnsToDisplay; when: isTest" class="element-row"
-        [class.expanded-row]="expandedElement === element"
-        (click)="expandedElement = expandedElement === element ? null : element"></tr>
-      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isTest" class="detail-row"></tr>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr
+          mat-row
+          *matRowDef="let element; columns: columnsToDisplay; when: isTest"
+          class="element-row"
+          [class.expanded-row]="expandedElement === element"
+          (click)="
+            expandedElement = expandedElement === element ? null : element
+          "
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: ['expandedDetail']; when: isTest"
+          class="detail-row"
+        ></tr>
 
-      <ng-container matColumnDef="groupHeader">
-          <td colspan="999" mat-cell *matCellDef="let groupBy" class="element-group">{{groupBy.groupIndex}}. {{groupBy.groupName}}</td>
-      </ng-container>
-      <tr mat-row *matRowDef="let row; columns: ['groupHeader']; when: isGroup"> </tr>
-    </table>
-  </mat-card>
+        <ng-container matColumnDef="groupHeader">
+          <td
+            colspan="999"
+            mat-cell
+            *matCellDef="let groupBy"
+            class="element-group"
+          >
+            {{ groupBy.groupIndex }}. {{ groupBy.groupName }}
+          </td>
+        </ng-container>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: ['groupHeader']; when: isGroup"
+        ></tr>
+      </table>
+    </mat-card>
   </div>
 
-    <!-- TODO: https://stackblitz.com/edit/angular-material-addrow-example -->
-  </div>
+  <!-- TODO: https://stackblitz.com/edit/angular-material-addrow-example -->
+</div>

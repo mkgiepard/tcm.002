@@ -61,6 +61,28 @@ export class TestPlanCreateComponent implements OnInit {
 
   ngOnInit() {}
 
+  addGroup(): void {
+    const x: TestCaseGroup = {
+      groupIndex: "1.2",
+      groupName: "Functional > UI",
+      isGroupBy: true,
+    };
+    this.testCaseData = this.testCaseData.concat(x);
+  }
+
+  addTestCase(): void {
+    const x: TestCase = {
+      index: 3,
+      title: "Just added",
+      priority: "P2",
+      status: "NEW",
+      steps:
+        "Preconditions: xxxxxxxxxxxxxxxxxxxx;\n\nStep 1: aaaaaaaa;\nStep 2: bbbbbbbb;\n" +
+        "Step 3: ccccccc",
+    };
+    this.testCaseData = this.testCaseData.concat(x);
+  }
+
   isGroup(index, item): boolean {
     return item.groupIndex ? true : false;
   }
