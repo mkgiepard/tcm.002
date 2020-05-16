@@ -26,12 +26,13 @@ export class ProjectService {
     return PROJECT_DATA.length;
   }
 
-  getProjectById(id) {
-    let result = null;
-    PROJECT_DATA.forEach((element) => {
-      if (element.id === id) result = element;
-    });
-    return result;
+  /** GET project by id. Will 404 if id not found */
+  getProjectById(id: number): Observable<Project> {
+    const url = `${this.projectsUrl}/${id}`;
+    return this.http.get<Project>(url).pipe(
+      tap((_) => console.log(`fetched project id=${id}`)),
+      catchError(this.handleError<Project>(`getProjectById id=${id}`))
+    );
   }
 
   getProjectByName(name) {
