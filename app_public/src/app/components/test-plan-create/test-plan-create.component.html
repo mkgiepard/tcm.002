@@ -48,7 +48,7 @@
         </div>
       </div>
       <mat-divider></mat-divider>
-      <div class="box">
+      <div class="box" *ngIf="tc">
         <p>Create new TestCase</p>
         <mat-form-field class="w100">
           <mat-label>TestCaseGroup:</mat-label>
@@ -60,7 +60,7 @@
           </select>
         </mat-form-field>
         <mat-form-field class="w100">
-          <input matInput placeholder="TestCase Title" />
+          <input matInput placeholder="TestCase Title" [(ngModel)]="tc.title" />
         </mat-form-field>
         <div class="label-spacer">
           <label>TestCase priority</label>
@@ -68,18 +68,19 @@
         <mat-radio-group
           aria-label="Select an option"
           class="w100 wrapper-justify"
+          [(ngModel)]="tc.priority"
         >
-          <mat-radio-button value="0">P0</mat-radio-button>
-          <mat-radio-button value="1">P1</mat-radio-button>
-          <mat-radio-button value="2" checked>P2</mat-radio-button>
-          <mat-radio-button value="3">P3</mat-radio-button>
-          <mat-radio-button value="4">P4</mat-radio-button>
+          <mat-radio-button value="P0">P0</mat-radio-button>
+          <mat-radio-button value="P1">P1</mat-radio-button>
+          <mat-radio-button value="P2">P2</mat-radio-button>
+          <mat-radio-button value="P3">P3</mat-radio-button>
+          <mat-radio-button value="P4">P4</mat-radio-button>
         </mat-radio-group>
         <mat-form-field class="w100">
           <input matInput placeholder="Tags" />
         </mat-form-field>
         <mat-form-field class="w100">
-          <textarea matInput placeholder="Description" rows="10"></textarea>
+          <textarea matInput placeholder="Description" rows="10" [(ngModel)]="tc.steps"></textarea>
         </mat-form-field>
         <div class="wrapper-right">
           <button mat-raised-button color="primary" (click)="addTestCase()">

@@ -29,6 +29,13 @@ import {
 })
 export class TestPlanCreateComponent implements OnInit {
   columnsToDisplay = ["index", "title", "priority", "status", "action"];
+  tc: TestCase = {
+    index: -1,
+    title: "",
+    priority: "P3",
+    status: "NEW",
+    steps: ""
+  }
 
   testCaseData: (TestCase | TestCaseGroup)[] = [
     { groupIndex: "1.1", groupName: "Functional > CUJ", isGroupBy: true },
@@ -71,16 +78,22 @@ export class TestPlanCreateComponent implements OnInit {
   }
 
   addTestCase(): void {
+    const id = this.testCaseData.length + 1;
     const x: TestCase = {
-      index: 3,
-      title: "Just added",
-      priority: "P2",
+      index: id,
+      title: this.tc.title,
+      priority: this.tc.priority,
       status: "NEW",
-      steps:
-        "Preconditions: xxxxxxxxxxxxxxxxxxxx;\n\nStep 1: aaaaaaaa;\nStep 2: bbbbbbbb;\n" +
-        "Step 3: ccccccc",
+      steps: this.tc.steps,
     };
     this.testCaseData = this.testCaseData.concat(x);
+    this.tc = {
+      index: -1,
+      title: "",
+      priority: "P3",
+      status: "NEW",
+      steps: ""
+    }
   }
 
   isGroup(index, item): boolean {
