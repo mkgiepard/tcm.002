@@ -39,7 +39,7 @@
           </select>
         </mat-form-field>
         <mat-form-field class="w100">
-          <input matInput placeholder="TestGroup Name" />
+          <input matInput placeholder="TestGroup Name" [(ngModel)]="tg.groupName" />
         </mat-form-field>
         <div class="wrapper-right">
           <button mat-raised-button color="primary" (click)="addGroup()">

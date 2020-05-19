@@ -29,6 +29,11 @@ import {
 })
 export class TestPlanCreateComponent implements OnInit {
   columnsToDisplay = ["index", "title", "priority", "status", "action"];
+  tg: TestCaseGroup = {
+    groupIndex: "",
+    groupName: "",
+    isGroupBy: true,
+  }
   tc: TestCase = {
     index: -1,
     title: "",
@@ -69,12 +74,18 @@ export class TestPlanCreateComponent implements OnInit {
   ngOnInit() {}
 
   addGroup(): void {
+    const id = this.testCaseData.length + 1;
     const x: TestCaseGroup = {
-      groupIndex: "1.2",
-      groupName: "Functional > UI",
+      groupIndex: "1." + id,
+      groupName: this.tg.groupName,
       isGroupBy: true,
     };
     this.testCaseData = this.testCaseData.concat(x);
+    this.tg = {
+      groupIndex: "",
+      groupName: "",
+      isGroupBy: true,
+    };
   }
 
   addTestCase(): void {
