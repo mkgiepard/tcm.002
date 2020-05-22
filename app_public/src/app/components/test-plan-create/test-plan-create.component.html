@@ -9,13 +9,13 @@
           </mat-form-field>
           <mat-form-field style="width: 40%; padding-right: 20px;">
             <mat-label>Author:</mat-label>
-            <select matNativeControl required>
-              <option value="0">-- Please Select --</option>
-              <option value="1">Tester No1</option>
-              <option value="2">Tester No2</option>
-              <option value="3">Tester No3</option>
-              <option value="4">Tester No4</option>
-            </select>
+            <mat-select>
+              <mat-option value="0">-- Please Select --</mat-option>
+              <mat-option value="1">Tester No1</mat-option>
+              <mat-option value="2">Tester No2</mat-option>
+              <mat-option value="3">Tester No3</mat-option>
+              <mat-option value="4">Tester No4</mat-option>
+            </mat-select>
           </mat-form-field>
           <button mat-raised-button color="primary">SAVE</button>
         </div>
@@ -30,13 +30,11 @@
         <p>Create new TestCaseGroup</p>
         <mat-form-field class="w100">
           <mat-label>Parent TestCaseGroup:</mat-label>
-          <select matNativeControl required>
-            <option value="0">-- default --</option>
-            <option value="1">TestCaseGroup No1</option>
-            <option value="2">TestCaseGroup No2</option>
-            <option value="3">TestCaseGroup No3</option>
-            <option value="4">TestCaseGroup No4</option>
-          </select>
+          <mat-select [(ngModel)]="selectedGroup" name="group">
+            <mat-option *ngFor="let group of groups" [value]="group.groupName">
+              {{group.groupName}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field class="w100">
           <input matInput placeholder="TestGroup Name" [(ngModel)]="tg.groupName" />
@@ -52,12 +50,11 @@
         <p>Create new TestCase</p>
         <mat-form-field class="w100">
           <mat-label>TestCaseGroup:</mat-label>
-          <select matNativeControl required>
-            <option value="1">TestCaseGroup No1</option>
-            <option value="2">TestCaseGroup No2</option>
-            <option value="3">TestCaseGroup No3</option>
-            <option value="4">TestCaseGroup No4</option>
-          </select>
+          <mat-select [(ngModel)]="selectedGroup" name="group">
+            <mat-option *ngFor="let group of groups" [value]="group.groupName">
+              {{group.groupName}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <mat-form-field class="w100">
           <input matInput placeholder="TestCase Title" [(ngModel)]="tc.title" />

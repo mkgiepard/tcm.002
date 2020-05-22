@@ -41,7 +41,12 @@ export class TestPlanCreateComponent implements OnInit {
     status: "NEW",
     steps: ""
   }
-
+  groups: TestCaseGroup[] = [
+    {groupIndex: "1", groupName: "Functional", isGroupBy: true},
+    {groupIndex: "1.1", groupName: "Functional > CUJ", isGroupBy: true},
+    {groupIndex: "2", groupName: "Performance", isGroupBy: true},
+    {groupIndex: "3", groupName: "Load & Stress", isGroupBy: true}
+  ];
   testCaseData: (TestCase | TestCaseGroup)[] = [
     { groupIndex: "1.1", groupName: "Functional > CUJ", isGroupBy: true },
     {
@@ -68,6 +73,7 @@ export class TestPlanCreateComponent implements OnInit {
   };
 
   expandedElement: TestCase | null;
+  selectedGroup: string;
 
   constructor() {}
 
@@ -77,7 +83,7 @@ export class TestPlanCreateComponent implements OnInit {
     const id = this.testCaseData.length + 1;
     const x: TestCaseGroup = {
       groupIndex: "1." + id,
-      groupName: this.tg.groupName,
+      groupName: `${this.selectedGroup} > ${this.tg.groupName}`,
       isGroupBy: true,
     };
     this.testCaseData = this.testCaseData.concat(x);
