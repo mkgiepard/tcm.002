@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { InMemoryDbService } from "angular-in-memory-web-api";
 import { Project } from "../models/project.model";
+import { TestCase, TestCaseGroup } from '../models/test-plan.model';
+
 
 @Injectable({
   providedIn: "root",
@@ -137,7 +139,190 @@ export class InMemoryDataService implements InMemoryDbService {
         create_date: new Date("2019-11-12"),
       },
     ];
+    const testGroups: TestCaseGroup[] = [
+      {
+        id: 1,
+        index: "1",
+        name: "Functional",
+        author_id: 1,
+        parent_id: 0,
+        project_id: 1,
+        test_plan_id: 1,
+        isGroupBy: true,
+        created: new Date("2020-05-23")
+      },
+      {
+        id: 2,
+        index: "1.1",
+        name: "Functional > UI",
+        author_id: 1,
+        parent_id: 1,
+        project_id: 1,
+        test_plan_id: 1,
+        isGroupBy: true,
+        created: new Date("2020-05-23")
+      },
+      {
+        id: 3,
+        index: "1.2",
+        name: "Functional > CUJ",
+        author_id: 1,
+        parent_id: 1,
+        project_id: 1,
+        test_plan_id: 1,
+        isGroupBy: true,
+        created: new Date("2020-05-23")
+      },
+      {
+        id: 4,
+        index: "2",
+        name: "Performance",
+        author_id: 1,
+        parent_id: 0,
+        project_id: 1,
+        test_plan_id: 1,
+        isGroupBy: true,
+        created: new Date("2020-05-23")
+      },
+      {
+        id: 5,
+        index: "2.1",
+        name: "Performance > Network",
+        author_id: 1,
+        parent_id: 4,
+        project_id: 1,
+        test_plan_id: 1,
+        isGroupBy: true,
+        created: new Date("2020-05-23")
+      },
+      {
+        id: 6,
+        index: "3",
+        name: "Security",
+        author_id: 1,
+        parent_id: 0,
+        project_id: 1,
+        test_plan_id: 1,
+        isGroupBy: true,
+        created: new Date("2020-05-23")
+      },
+    ];
+    const testCases: TestCase[] = [
+      {
+        id: 1,
+        index: 1,
+        title: "Verify if a User can sign in with a newly created account",
+        priority: "P2",
+        status: "NEW",
+        steps: "",
+        tags: [],
+        author_id: 1,
+        group_id: 1,
+        project_id: 1,
+        test_plan_id: 1,
+        created: new Date("2020-05-23"),
+      },
+      {
+        id: 2,
+        index: 2,
+        title: "Verify if already created User can sign in",
+        priority: "P2",
+        status: "NEW",
+        steps: "",
+        tags: [],
+        author_id: 1,
+        group_id: 1,
+        project_id: 1,
+        test_plan_id: 1,
+        created: new Date("2020-05-23"),
+      },
+      {
+        id: 3,
+        index: 3,
+        title: "Verify event recurring event creation with custom recurring rule",
+        priority: "P2",
+        status: "NEW",
+        steps: "",
+        tags: [],
+        author_id: 1,
+        group_id: 1,
+        project_id: 1,
+        test_plan_id: 1,
+        created: new Date("2020-05-23"),
+      },
+      {
+        id: 4,
+        index: 1,
+        title: "Test case A",
+        priority: "P2",
+        status: "NEW",
+        steps: "",
+        tags: [],
+        author_id: 1,
+        group_id: 2,
+        project_id: 1,
+        test_plan_id: 1,
+        created: new Date("2020-05-23"),
+      },
+      {
+        id: 5,
+        index: 2,
+        title: "Test case B",
+        priority: "P2",
+        status: "NEW",
+        steps: "",
+        tags: [],
+        author_id: 1,
+        group_id: 2,
+        project_id: 1,
+        test_plan_id: 1,
+        created: new Date("2020-05-23"),
+      },
+      {
+        id: 6,
+        index: 1,
+        title: "Test case C",
+        priority: "P2",
+        status: "NEW",
+        steps: "",
+        tags: [],
+        author_id: 1,
+        group_id: 3,
+        project_id: 1,
+        test_plan_id: 1,
+        created: new Date("2020-05-23"),
+      },
+      {
+        id: 7,
+        index: 1,
+        title: "Test case D",
+        priority: "P2",
+        status: "NEW",
+        steps: "",
+        tags: [],
+        author_id: 1,
+        group_id: 4,
+        project_id: 1,
+        test_plan_id: 1,
+        created: new Date("2020-05-23"),
+      },
+      {
+        id: 8,
+        index: 2,
+        title: "Test case E",
+        priority: "P2",
+        status: "NEW",
+        steps: "",
+        tags: [],
+        author_id: 1,
+        group_id: 4,
+        project_id: 1,
+        test_plan_id: 1,
+        created: new Date("2020-05-23"),
+      },
+    ];
+
     console.log("in-memory-data > " + projects.length);
-    return { projects };
+    return { projects, testGroups, testCases };
   }
 }

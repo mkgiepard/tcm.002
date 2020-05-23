@@ -7,19 +7,32 @@ export interface TestPlan {
 }
 
 export interface TestCase {
-  id?: string; // TODO: make it mandatory
-  title: string;
+  id?: number; // TODO: make it mandatory
   index: number;
+  title: string;
   priority: string;
   status: string;
   steps: string;
+  tags?: string[];
+  author_id?: number;
+  group_id?: number;
+  project_id?: number;
+  test_plan_id?: number;
+  created?: Date;
 }
 
 export interface TestCaseGroup {
-  id?: string; // TODO: make it mandatory
-  groupIndex: string;
-  groupName: string;
+  id?: number; // TODO: make it mandatory
+  index?: string;
+  name?: string;
+  author_id?: number;
+  parent_id?: number;
+  project_id?: number;
+  test_plan_id?: number;
+  groupIndex?: string; // TODO: deprecate
+  groupName?: string; // TODO: deprecate
   isGroupBy: boolean;
+  created?: Date;
 }
 
 export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [

@@ -56,7 +56,7 @@
       <tr mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isTest" class="detail-row"></tr>
     
       <ng-container matColumnDef="groupHeader">
-        <td colspan="4" mat-cell *matCellDef="let groupBy" class="element-group">{{groupBy.groupIndex}}. {{groupBy.groupName}}</td>
+        <td colspan="4" mat-cell *matCellDef="let groupBy" class="element-group">{{groupBy.index}}. {{groupBy.name}}</td>
       </ng-container>
       <tr mat-row *matRowDef="let row; columns: groupColumnsToDisplay; when: isGroup"> </tr>
     </table>
