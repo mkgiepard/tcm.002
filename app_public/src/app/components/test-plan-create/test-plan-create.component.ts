@@ -80,7 +80,7 @@ export class TestPlanCreateComponent implements OnInit {
     this.tg = {
       groupIndex: "",
       groupName: "",
-      isGroupBy: true,ś
+      isGroupBy: true,
     };
   }
 
