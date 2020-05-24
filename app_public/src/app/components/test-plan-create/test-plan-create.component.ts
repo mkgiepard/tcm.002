@@ -31,11 +31,13 @@ import { TestEffortService } from "../../services/test-effort.service";
 export class TestPlanCreateComponent implements OnInit {
   columnsToDisplay = ["index", "title", "priority", "status", "action"];
   tg: TestCaseGroup = {
+    id: 0,
     index: "",
     name: "",
     isGroupBy: true,
   };
   tc: TestCase = {
+    id: 0,
     index: -1,
     title: "",
     priority: "P3",
@@ -50,6 +52,7 @@ export class TestPlanCreateComponent implements OnInit {
 
   expandedElement: TestCase | null;
   selectedGroup: string;
+  selectedGroupIdForTC: number;
 
   constructor(private teService: TestEffortService) {}
 
@@ -82,13 +85,14 @@ export class TestPlanCreateComponent implements OnInit {
   }
 
   addTestCase(): void {
-    const id = this.testCaseData.length + 1;
+    const id = this.getNextTCindexForGroup(this.selectedGroupIdForTC);
     const x: TestCase = {
       index: id,
       title: this.tc.title,
       priority: this.tc.priority,
       status: "NEW",
       steps: this.tc.steps,
+      group_id: this.selectedGroupIdForTC,
     };
     this.testCaseData = this.testCaseData.concat(x);
     this.tc = {
@@ -98,6 +102,14 @@ export class TestPlanCreateComponent implements OnInit {
       status: "NEW",
       steps: "",
     };
+  }
+
+  getNextTCindexForGroup(groupId: number) {
+    let counter = 0;
+    for (let i = 0; i < this.testCaseData.length; i++) {
+      if ((<TestCase>this.testCaseData[i]).group_id === groupId) counter++;
+    }
+    return counter + 1;
   }
 
   isGroup(index, item): boolean {

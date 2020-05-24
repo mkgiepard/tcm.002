@@ -50,8 +50,8 @@
         <p>Create new TestCase</p>
         <mat-form-field class="w100">
           <mat-label>TestCaseGroup:</mat-label>
-          <mat-select [(ngModel)]="selectedGroup" name="group">
-            <mat-option *ngFor="let group of groups" [value]="group.name">
+          <mat-select [(ngModel)]="selectedGroupIdForTC" name="group">
+            <mat-option *ngFor="let group of groups" [value]="group.id">
               {{ group.name }}
             </mat-option>
           </mat-select>
