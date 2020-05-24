@@ -31,13 +31,13 @@
         <mat-form-field class="w100">
           <mat-label>Parent TestCaseGroup:</mat-label>
           <mat-select [(ngModel)]="selectedGroup" name="group">
-            <mat-option *ngFor="let group of groups" [value]="group.groupName">
-              {{group.groupName}}
+            <mat-option *ngFor="let group of groups" [value]="group.name">
+              {{ group.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field class="w100">
-          <input matInput placeholder="TestGroup Name" [(ngModel)]="tg.groupName" />
+          <input matInput placeholder="TestGroup Name" [(ngModel)]="tg.name" />
         </mat-form-field>
         <div class="wrapper-right">
           <button mat-raised-button color="primary" (click)="addGroup()">
@@ -51,8 +51,8 @@
         <mat-form-field class="w100">
           <mat-label>TestCaseGroup:</mat-label>
           <mat-select [(ngModel)]="selectedGroup" name="group">
-            <mat-option *ngFor="let group of groups" [value]="group.groupName">
-              {{group.groupName}}
+            <mat-option *ngFor="let group of groups" [value]="group.name">
+              {{ group.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -77,7 +77,12 @@
           <input matInput placeholder="Tags" />
         </mat-form-field>
         <mat-form-field class="w100">
-          <textarea matInput placeholder="Description" rows="10" [(ngModel)]="tc.steps"></textarea>
+          <textarea
+            matInput
+            placeholder="Description"
+            rows="10"
+            [(ngModel)]="tc.steps"
+          ></textarea>
         </mat-form-field>
         <div class="wrapper-right">
           <button mat-raised-button color="primary" (click)="addTestCase()">
@@ -159,7 +164,7 @@
             *matCellDef="let groupBy"
             class="element-group"
           >
-            {{ groupBy.groupIndex }}. {{ groupBy.groupName }}
+            {{ groupBy.index }}. {{ groupBy.name }}
           </td>
         </ng-container>
         <tr

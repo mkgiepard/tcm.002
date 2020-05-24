@@ -11,6 +11,7 @@ import {
   TestCase,
   TestCaseGroup,
 } from "../../models/test-plan.model";
+import { TestEffortService } from "../../services/test-effort.service";
 
 @Component({
   selector: "app-test-plan-create",
@@ -30,44 +31,19 @@ import {
 export class TestPlanCreateComponent implements OnInit {
   columnsToDisplay = ["index", "title", "priority", "status", "action"];
   tg: TestCaseGroup = {
-    groupIndex: "",
-    groupName: "",
+    index: "",
+    name: "",
     isGroupBy: true,
-  }
+  };
   tc: TestCase = {
     index: -1,
     title: "",
     priority: "P3",
     status: "NEW",
-    steps: ""
-  }
-  groups: TestCaseGroup[] = [
-    {groupIndex: "1", groupName: "Functional", isGroupBy: true},
-    {groupIndex: "1.1", groupName: "Functional > CUJ", isGroupBy: true},
-    {groupIndex: "2", groupName: "Performance", isGroupBy: true},
-    {groupIndex: "3", groupName: "Load & Stress", isGroupBy: true}
-  ];
-  testCaseData: (TestCase | TestCaseGroup)[] = [
-    { groupIndex: "1.1", groupName: "Functional > CUJ", isGroupBy: true },
-    {
-      index: 1,
-      title: "Verify if a User can sign in with a newly created account",
-      priority: "P0",
-      status: "NEW",
-      steps:
-        "Preconditions: xxxxxxxxxxxxxxxxxxxx;\n\nStep 1: aaaaaaaa;\nStep 2: bbbbbbbb;\n" +
-        "Step 3: ccccccc",
-    },
-    {
-      index: 2,
-      title: "Verify if already created User can sign in",
-      priority: "P1",
-      status: "NEW",
-      steps:
-        "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; " +
-        "Step 3: ccccccc",
-    },
-  ];
+    steps: "",
+  };
+  groups: TestCaseGroup[];
+  testCaseData: (TestCase | TestCaseGroup)[];
   testPlanData = {
     testCases: this.testCaseData,
   };
@@ -75,15 +51,26 @@ export class TestPlanCreateComponent implements OnInit {
   expandedElement: TestCase | null;
   selectedGroup: string;
 
-  constructor() {}
+  constructor(private teService: TestEffortService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fetchTestData();
+  }
+
+  fetchTestData(): void {
+    this.teService.getTestData(1).subscribe((data) => {
+      this.testCaseData = data;
+    });
+    this.teService.getTestGroupsByTestPlanId(1).subscribe((data) => {
+      this.groups = data;
+    });
+  }
 
   addGroup(): void {
     const id = this.testCaseData.length + 1;
     const x: TestCaseGroup = {
-      groupIndex: "1." + id,
-      groupName: `${this.selectedGroup} > ${this.tg.groupName}`,
+      index: "1." + id,
+      name: `${this.selectedGroup} > ${this.tg.name}`,
       isGroupBy: true,
     };
     this.testCaseData = this.testCaseData.concat(x);
@@ -109,12 +96,12 @@ export class TestPlanCreateComponent implements OnInit {
       title: "",
       priority: "P3",
       status: "NEW",
-      steps: ""
-    }
+      steps: "",
+    };
   }
 
   isGroup(index, item): boolean {
-    return item.groupIndex ? true : false;
+    return item.isGroupBy ? true : false;
   }
 
   isTest(index, item): boolean {

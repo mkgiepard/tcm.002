@@ -50,11 +50,8 @@ export class TestEffortService {
     tg: TestCaseGroup[],
     tc: TestCase[]
   ): (TestCase | TestCaseGroup)[] {
-    console.log(this.testGroups.length);
     const tgSorted = tg.sort((a, b) => a.index.localeCompare(b.index));
     const tcSorted = tc.sort((a, b) => a.group_id - b.group_id);
-    console.log(tgSorted);
-    console.log(tcSorted);
     // TODO: optimise
     let testData: (TestCase | TestCaseGroup)[] = [];
     for (let i = 0; i < tgSorted.length; i++) {
@@ -65,7 +62,6 @@ export class TestEffortService {
         }
       }
     }
-    console.log(testData);
     return testData;
   }
 
