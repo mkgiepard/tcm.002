@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import { InMemoryDbService } from "angular-in-memory-web-api";
 import { Project } from "../models/project.model";
-import { TestCase, TestCaseGroup } from '../models/test-plan.model';
-
+import { TestCase, TestCaseGroup } from "../models/test-plan.model";
 
 @Injectable({
   providedIn: "root",
@@ -149,7 +148,7 @@ export class InMemoryDataService implements InMemoryDbService {
         project_id: 1,
         test_plan_id: 1,
         isGroupBy: true,
-        created: new Date("2020-05-23")
+        created: new Date("2020-05-23"),
       },
       {
         id: 2,
@@ -160,7 +159,7 @@ export class InMemoryDataService implements InMemoryDbService {
         project_id: 1,
         test_plan_id: 1,
         isGroupBy: true,
-        created: new Date("2020-05-23")
+        created: new Date("2020-05-23"),
       },
       {
         id: 3,
@@ -171,7 +170,7 @@ export class InMemoryDataService implements InMemoryDbService {
         project_id: 1,
         test_plan_id: 1,
         isGroupBy: true,
-        created: new Date("2020-05-23")
+        created: new Date("2020-05-23"),
       },
       {
         id: 4,
@@ -182,7 +181,7 @@ export class InMemoryDataService implements InMemoryDbService {
         project_id: 1,
         test_plan_id: 1,
         isGroupBy: true,
-        created: new Date("2020-05-23")
+        created: new Date("2020-05-23"),
       },
       {
         id: 5,
@@ -193,7 +192,7 @@ export class InMemoryDataService implements InMemoryDbService {
         project_id: 1,
         test_plan_id: 1,
         isGroupBy: true,
-        created: new Date("2020-05-23")
+        created: new Date("2020-05-23"),
       },
       {
         id: 6,
@@ -204,7 +203,7 @@ export class InMemoryDataService implements InMemoryDbService {
         project_id: 1,
         test_plan_id: 1,
         isGroupBy: true,
-        created: new Date("2020-05-23")
+        created: new Date("2020-05-23"),
       },
     ];
     const testCases: TestCase[] = [
@@ -214,7 +213,8 @@ export class InMemoryDataService implements InMemoryDbService {
         title: "Verify if a User can sign in with a newly created account",
         priority: "P2",
         status: "NEW",
-        steps: "",
+        steps:
+          "1. Do something\n2. Then do something else\nVRF: AAA is not green",
         tags: [],
         author_id: 1,
         group_id: 1,
@@ -239,7 +239,8 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 3,
         index: 3,
-        title: "Verify event recurring event creation with custom recurring rule",
+        title:
+          "Verify event recurring event creation with custom recurring rule",
         priority: "P2",
         status: "NEW",
         steps: "",

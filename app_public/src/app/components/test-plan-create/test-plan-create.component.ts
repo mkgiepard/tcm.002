@@ -11,6 +11,7 @@ import {
   TestCase,
   TestCaseGroup,
 } from "../../models/test-plan.model";
+// TODO: replace with TestPlanService
 import { TestEffortService } from "../../services/test-effort.service";
 
 @Component({
