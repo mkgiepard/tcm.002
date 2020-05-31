@@ -1,7 +1,12 @@
 import { Injectable } from "@angular/core";
 import { InMemoryDbService } from "angular-in-memory-web-api";
 import { Project } from "../models/project.model";
-import { TestCase, TestCaseGroup } from "../models/test-plan.model";
+import {
+  TestCase,
+  TestCaseGroup,
+  TestPlan,
+  TEST_PLAN_DATA_MULTI,
+} from "../models/test-plan.model";
 
 @Injectable({
   providedIn: "root",
@@ -322,8 +327,9 @@ export class InMemoryDataService implements InMemoryDbService {
         created: new Date("2020-05-23"),
       },
     ];
+    const testPlans: TestPlan[] = TEST_PLAN_DATA_MULTI;
 
     console.log("in-memory-data > " + projects.length);
-    return { projects, testGroups, testCases };
+    return { projects, testGroups, testCases, testPlans };
   }
 }
