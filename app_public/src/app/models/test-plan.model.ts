@@ -224,6 +224,13 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
   },
+  {
+    id: "12",
+    name: "Test Plan L.001",
+    author: "Mario Bros",
+    create_date: new Date("2019-11-17"),
+    testCases: TEST_CASES_DATA,
+  },
 ];
 
 export const TEST_PLAN_DATA_SELECTED: TestPlan[] = [
