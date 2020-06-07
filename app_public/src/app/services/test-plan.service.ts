@@ -9,15 +9,22 @@ import { tap, catchError } from "rxjs/operators";
 })
 export class TestPlanService {
   private testPlansUrl = "api/testPlans";
-  private testPlanUrl = "api/testPlan";
 
   constructor(private http: HttpClient) {}
 
   getTestPlans(): Observable<TestPlan[]> {
     const url = `${this.testPlansUrl}`;
-    return this.http.get<TestPlan[]>(this.testPlansUrl).pipe(
+    return this.http.get<TestPlan[]>(url).pipe(
       tap((_) => console.log("fetched test plans")),
       catchError(this.handleError<TestPlan[]>("getTestPlans", []))
+    );
+  }
+
+  getTestPlan(id: number): Observable<TestPlan> {
+    const url = `${this.testPlansUrl}/${id}`;
+    return this.http.get<TestPlan>(url).pipe(
+      tap((_) => console.log("fetched test plan")),
+      catchError(this.handleError<TestPlan>("getTestPlan"))
     );
   }
 

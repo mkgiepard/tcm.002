@@ -136,6 +136,14 @@ export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
     steps:
       "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
   },
+  {
+    index: 2,
+    title: "zzz Check the app loading time with enormous set of data",
+    priority: "P10",
+    status: "NEW",
+    steps:
+      "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
+  },
 ];
 
 export const TEST_PLAN_DATA: TestPlan = {

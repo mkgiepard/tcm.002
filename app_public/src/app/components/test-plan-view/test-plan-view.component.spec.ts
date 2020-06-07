@@ -1,18 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { AppMaterialModule } from '../../app.material.module';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { TestPlanViewComponent } from './test-plan-view.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { AppMaterialModule } from "../../app.material.module";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
+import { TestPlanViewComponent } from "./test-plan-view.component";
+import { RouterTestingModule } from "@angular/router/testing";
+// Http testing module and mocking controller
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
-describe('TestPlanViewComponent', () => {
+describe("TestPlanViewComponent", () => {
   let component: TestPlanViewComponent;
   let fixture: ComponentFixture<TestPlanViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestPlanViewComponent ],
-      imports: [AppMaterialModule, NoopAnimationsModule]
-    })
-    .compileComponents();
+      declarations: [TestPlanViewComponent],
+      imports: [
+        AppMaterialModule,
+        NoopAnimationsModule,
+        RouterTestingModule,
+        HttpClientTestingModule,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,7 +28,7 @@ describe('TestPlanViewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
