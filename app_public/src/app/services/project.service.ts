@@ -11,6 +11,10 @@ import { catchError, map, tap } from "rxjs/operators";
 export class ProjectService {
   private projectsUrl = "api/projects"; // URL to web api
 
+  httpOptions = {
+    headers: new HttpHeaders({ "Content-Type": "application/json" }),
+  };
+
   constructor(private http: HttpClient) {}
 
   /** GET projects from the server */
@@ -20,10 +24,6 @@ export class ProjectService {
       tap((_) => console.log("fetched projects")),
       catchError(this.handleError<Project[]>("getProjects", []))
     );
-  }
-
-  getLastId() {
-    return PROJECT_DATA.length;
   }
 
   /** GET project by id. Will 404 if id not found */
@@ -43,8 +43,16 @@ export class ProjectService {
     return result;
   }
 
-  addProject(project) {
-    PROJECT_DATA.push(project);
+  /** POST: add a new project to the server */
+  addProject(project: Project): Observable<Project> {
+    return this.http
+      .post<Project>(this.projectsUrl, project, this.httpOptions)
+      .pipe(
+        tap((newProject: Project) =>
+          console.log(`added project w/ id=${newProject.id}`)
+        ),
+        catchError(this.handleError<Project>("addProject"))
+      );
   }
 
   updateProject(project) {

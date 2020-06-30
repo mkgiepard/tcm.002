@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Project } from '../../models/project.model';
-import { ProjectService } from '../../services/project.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { Project } from "../../models/project.model";
+import { ProjectService } from "../../services/project.service";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-project-create',
-  templateUrl: './project-create.component.html',
-  styleUrls: ['./project-create.component.css']
+  selector: "app-project-create",
+  templateUrl: "./project-create.component.html",
+  styleUrls: ["./project-create.component.css"],
 })
 export class ProjectCreateComponent implements OnInit {
   createForm: FormGroup;
@@ -17,11 +17,12 @@ export class ProjectCreateComponent implements OnInit {
 
   constructor(
     private projectService: ProjectService,
-    private fb: FormBuilder, 
-    private router: Router) {}
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.createNewProjectIntance(this.projectService.getLastId());
+    this.createNewProjectIntance();
     this.createForm = this.fb.group({
       name: [this.project.name, Validators.required],
       subtitle: this.project.subtitle,
@@ -31,25 +32,21 @@ export class ProjectCreateComponent implements OnInit {
     });
   }
 
-  createNewProjectIntance(numProjects: number) {
-    const projectId = numProjects + 1;
+  createNewProjectIntance() {
     this.project = {
-      id: projectId,
-      name: '',
-      subtitle: '',
-      author: 'Jon Deo',
-      status: 'NEW',
-      create_date: new Date()
-    }
+      id: -1,
+      name: "",
+      subtitle: "",
+      author: "Jon Deo",
+      status: "NEW",
+      create_date: new Date(),
+    };
   }
 
-  addNewProject(project) {
-    this.project.name = project.name;
-    this.project.subtitle = project.subtitle;
-    this.savingProject = true;
-    this.projectService.addProject(this.project);
-    this.savingProject = false;
-    this.router.navigate(['/project-list']);
+  addNewProject(project: Project): void {
+    this.projectService.addProject(project).subscribe((project) => {
+      this.project = project;
+      this.router.navigate(["/project-list"]);
+    });
   }
-
 }

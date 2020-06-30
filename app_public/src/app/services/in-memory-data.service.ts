@@ -200,8 +200,13 @@ export class InMemoryDataService implements InMemoryDbService {
       },
     ];
     const testPlans: TestPlan[] = TEST_PLAN_DATA_MULTI;
-
     console.log("in-memory-data > " + projects.length);
     return { projects, testGroups, testCases, testPlans };
+  }
+
+  genId(projects: Project[]): number {
+    return projects.length > 0
+      ? Math.max(...projects.map((project) => project.id)) + 1
+      : 11;
   }
 }
