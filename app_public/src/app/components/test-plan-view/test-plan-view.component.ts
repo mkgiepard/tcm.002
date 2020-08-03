@@ -9,7 +9,6 @@ import {
 import {
   TestPlan,
   TestCase,
-  TEST_PLAN_DATA,
   TestCaseGroup,
 } from "../../models/test-plan.model";
 import { ActivatedRoute } from "@angular/router";

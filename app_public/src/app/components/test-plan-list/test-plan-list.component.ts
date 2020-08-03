@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { MatTableDataSource } from "@angular/material/table";
-import { TEST_PLAN_DATA_MULTI } from "../../models/test-plan.model";
 import { TestPlanService } from "../../services/test-plan.service";
 
 @Component({

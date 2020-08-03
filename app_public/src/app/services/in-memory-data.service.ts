@@ -1,13 +1,9 @@
 import { Injectable } from "@angular/core";
 import { InMemoryDbService } from "angular-in-memory-web-api";
 import { Project } from "../models/project.model";
-import {
-  TestCase,
-  TestCaseGroup,
-  TestPlan,
-  TEST_PLAN_DATA_MULTI,
-} from "../models/test-plan.model";
+import { TestCase, TestCaseGroup, TestPlan } from "../models/test-plan.model";
 import { PROJECT_DATA } from "../models/fake-data/project-data";
+import { TEST_PLAN_DATA_MULTI } from "../models/fake-data/test-plan-data";
 import { TEST_CASE_GROUP_DATA } from "../models/fake-data/test-case-group-data";
 import { TEST_CASE_DATA } from "../models/fake-data/test-case-data";
 
