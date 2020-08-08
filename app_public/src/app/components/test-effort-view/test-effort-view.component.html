@@ -1,9 +1,11 @@
 <div class="wrapper">
   <mat-card class="">
-    <h1>{{ testPlanData.name }}</h1>
-    <span style="color: gray;">
-      {{ testPlanData.author }} @ {{ testPlanData.create_date }}</span
-    >
+    <div *ngIf="testPlanData">
+      <h1>{{ testPlanData.name }}</h1>
+      <span style="color: gray;">
+        {{ testPlanData.author }} @ {{ testPlanData.create_date }}</span
+      >
+    </div>
   </mat-card>
   <table
     mat-table

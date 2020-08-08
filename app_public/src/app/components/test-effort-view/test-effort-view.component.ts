@@ -10,9 +10,9 @@ import {
   TestPlan,
   TestCase,
   TestCaseGroup,
-  TEST_PLAN_DATA,
 } from "../../models/test-plan.model";
 import { TestEffortService } from "../../services/test-effort.service";
+import { TestPlanService } from "../../services/test-plan.service";
 import { Observable } from "rxjs";
 
 @Component({
@@ -40,11 +40,14 @@ export class TestEffortViewComponent implements OnInit {
     "action",
   ];
   groupColumnsToDisplay = ["groupHeader", "comment", "action"];
-  testPlanData = TEST_PLAN_DATA;
+  testPlanData: TestPlan;
   dataSource: (TestCase | TestCaseGroup)[];
   expandedElement: TestCase | null;
 
-  constructor(private teService: TestEffortService) {}
+  constructor(
+    private teService: TestEffortService,
+    private tpService: TestPlanService
+  ) {}
 
   ngOnInit() {
     this.fetchTestData();
@@ -54,6 +57,9 @@ export class TestEffortViewComponent implements OnInit {
     this.teService.getTestData(1).subscribe((data) => {
       this.dataSource = data;
     });
+    this.tpService
+      .getTestPlan(1)
+      .subscribe((data) => (this.testPlanData = data));
   }
 
   isGroup(index, item): boolean {

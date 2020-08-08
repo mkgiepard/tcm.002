@@ -4,6 +4,7 @@ export interface TestPlan {
   author: string;
   create_date: Date;
   testCases: (TestCase | TestCaseGroup)[];
+  project_id: number;
 }
 
 export interface TestCase {
@@ -146,14 +147,6 @@ export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
   },
 ];
 
-export const TEST_PLAN_DATA: TestPlan = {
-  id: "1",
-  name: "Test Plan A.001",
-  author: "Mario Bros",
-  create_date: new Date("2019-11-17"),
-  testCases: TEST_CASES_DATA,
-};
-
 export const TEST_PLAN_DATA_SELECTED: TestPlan[] = [
   {
     id: "1",
@@ -161,6 +154,7 @@ export const TEST_PLAN_DATA_SELECTED: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 1,
   },
   {
     id: "2",
@@ -168,5 +162,6 @@ export const TEST_PLAN_DATA_SELECTED: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 1,
   },
 ];

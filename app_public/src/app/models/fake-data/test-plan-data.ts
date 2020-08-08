@@ -111,14 +111,6 @@ export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
   },
 ];
 
-export const TEST_PLAN_DATA: TestPlan = {
-  id: "1",
-  name: "Test Plan A.001",
-  author: "Mario Bros",
-  create_date: new Date("2019-11-17"),
-  testCases: TEST_CASES_DATA,
-};
-
 export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
   {
     id: "1",
@@ -126,6 +118,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 1,
   },
   {
     id: "2",
@@ -133,6 +126,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 1,
   },
   {
     id: "3",
@@ -140,6 +134,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 1,
   },
   {
     id: "4",
@@ -147,6 +142,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 2,
   },
   {
     id: "5",
@@ -154,6 +150,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 2,
   },
   {
     id: "6",
@@ -161,6 +158,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 3,
   },
   {
     id: "7",
@@ -168,6 +166,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 4,
   },
   {
     id: "8",
@@ -175,6 +174,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 5,
   },
   {
     id: "9",
@@ -182,6 +182,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 5,
   },
   {
     id: "10",
@@ -189,6 +190,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 5,
   },
   {
     id: "11",
@@ -196,6 +198,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 5,
   },
   {
     id: "12",
@@ -203,6 +206,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 5,
   },
 ];
 
@@ -213,6 +217,7 @@ export const TEST_PLAN_DATA_SELECTED: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 1,
   },
   {
     id: "2",
@@ -220,5 +225,6 @@ export const TEST_PLAN_DATA_SELECTED: TestPlan[] = [
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
     testCases: TEST_CASES_DATA,
+    project_id: 1,
   },
 ];
