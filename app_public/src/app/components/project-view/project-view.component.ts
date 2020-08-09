@@ -31,6 +31,7 @@ export class ProjectViewComponent implements OnInit {
   ];
   tpDataSource = new MatTableDataSource();
   teDataSource = new MatTableDataSource(TEST_EFFORT_DATA);
+  tp_id: number;
 
   constructor(
     private projectService: ProjectService,
@@ -40,29 +41,21 @@ export class ProjectViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.tp_id = +this.route.snapshot.paramMap.get("id");
     this.getProject();
     this.getTestPlans();
   }
 
   getProject(): void {
-    const id = +this.route.snapshot.paramMap.get("id");
     this.projectService
-      .getProjectById(id)
+      .getProjectById(this.tp_id)
       .subscribe((project) => (this.projectData = project));
   }
 
-  // TODO: move it to the TestPlanService
   getTestPlans(): void {
-    let testplans: TestPlan[] = [];
-    this.testPlanService.getTestPlans().subscribe((data) => {
-      data.forEach((element) => {
-        if (element.project_id == this.projectData.id) {
-          console.log(testplans);
-          testplans.push(element);
-        }
-      });
-      this.tpDataSource.data = testplans;
-    });
+    this.testPlanService
+      .getTestPlansForProject(this.tp_id)
+      .subscribe((data) => (this.tpDataSource.data = data));
   }
 
   goBack(): void {

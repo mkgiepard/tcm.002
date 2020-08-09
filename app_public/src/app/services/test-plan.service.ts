@@ -2,7 +2,8 @@ import { Injectable } from "@angular/core";
 import { TestCaseGroup, TestCase, TestPlan } from "../models/test-plan.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of, combineLatest } from "rxjs";
-import { tap, catchError } from "rxjs/operators";
+import { tap, catchError, map, filter } from "rxjs/operators";
+import { element } from "protractor";
 
 @Injectable({
   providedIn: "root",
@@ -25,6 +26,14 @@ export class TestPlanService {
     return this.http.get<TestPlan>(url).pipe(
       tap((_) => console.log("fetched test plan")),
       catchError(this.handleError<TestPlan>("getTestPlan"))
+    );
+  }
+
+  getTestPlansForProject(id: number): Observable<TestPlan[]> {
+    return this.getTestPlans().pipe(
+      map((tps: TestPlan[]) =>
+        tps.filter((element) => element.project_id == id)
+      )
     );
   }
 
