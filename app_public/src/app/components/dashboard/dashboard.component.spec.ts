@@ -1,18 +1,22 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { AppMaterialModule } from '../../app.material.module';
-import { DashboardComponent } from './dashboard.component';
-import { ProjectCardComponent } from '../project-card/project-card.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { AppMaterialModule } from "../../app.material.module";
+import { DashboardComponent } from "./dashboard.component";
+import { ProjectCardComponent } from "../project-card/project-card.component";
+// Http testing module and mocking controller
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from "@angular/common/http/testing";
 
-describe('DashboardComponent', () => {
+describe("DashboardComponent", () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent, ProjectCardComponent ],
-      imports: [AppMaterialModule, ]
-    })
-    .compileComponents();
+      declarations: [DashboardComponent, ProjectCardComponent],
+      imports: [AppMaterialModule, HttpClientTestingModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,7 +25,7 @@ describe('DashboardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

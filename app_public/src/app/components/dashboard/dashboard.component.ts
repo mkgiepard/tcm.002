@@ -1,18 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Project, PROJECT_DATA } from '../../models/project.model';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { ProjectService } from "src/app/services/project.service";
+import { Project } from "../../models/project.model";
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: "app-dashboard",
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ["./dashboard.component.css"],
 })
 export class DashboardComponent implements OnInit {
-  dataSource = PROJECT_DATA;
+  dataSource: Project[];
   project_name: string;
-  
-  constructor() { }
+
+  constructor(private projectService: ProjectService) {}
 
   ngOnInit() {
+    this.fetchProjects();
   }
 
+  fetchProjects(): void {
+    this.projectService.getProjects().subscribe((projects) => {
+      this.dataSource = projects;
+    });
+  }
 }
