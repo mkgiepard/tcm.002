@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Project, PROJECT_DATA } from "../models/project.model";
+import { Project } from "../models/project.model";
 import { Title } from "@angular/platform-browser";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of } from "rxjs";
@@ -35,14 +35,6 @@ export class ProjectService {
     );
   }
 
-  getProjectByName(name) {
-    let result = null;
-    PROJECT_DATA.forEach((element) => {
-      if (element.name === name) result = element;
-    });
-    return result;
-  }
-
   /** POST: add a new project to the server */
   addProject(project: Project): Observable<Project> {
     return this.http
@@ -55,24 +47,22 @@ export class ProjectService {
       );
   }
 
-  updateProject(project) {
-    let index = -1;
-    PROJECT_DATA.forEach((element) => {
-      if (element.id === project.id) {
-        index = PROJECT_DATA.indexOf(element);
-      }
-    });
-    if (index > -1) PROJECT_DATA.splice(index, 1);
-    PROJECT_DATA.push(project);
+  updateProject(project: Project): Observable<any> {
+    return this.http.put(this.projectsUrl, project, this.httpOptions).pipe(
+      tap((_) => console.log(`updated project id=${project.id}`)),
+      catchError(this.handleError<any>("updateProject"))
+    );
   }
 
-  deleteProject(id: Number): void {
-    for (let i = 0; i < PROJECT_DATA.length; i++) {
-      if (PROJECT_DATA[i].id === id) {
-        PROJECT_DATA.splice(i, 1);
-        break;
-      }
-    }
+  /** DELETE: delete the hero from the server */
+  deleteProject(project: Project | number): Observable<Project> {
+    const id = typeof project === "number" ? project : project.id;
+    const url = `${this.projectsUrl}/${id}`;
+
+    return this.http.delete<Project>(url, this.httpOptions).pipe(
+      tap((_) => console.log(`deleted project id=${id}`)),
+      catchError(this.handleError<Project>("ProjectHero"))
+    );
   }
 
   /**

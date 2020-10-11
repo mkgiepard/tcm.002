@@ -37,8 +37,8 @@ export class ProjectListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  deleteProject(id): void {
-    this.projectService.deleteProject(Number(id));
+  deleteProject(id: number): void {
+    this.projectService.deleteProject(id).subscribe();
     this.fetchProjects();
   }
 }

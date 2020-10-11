@@ -1,26 +1,55 @@
 <div class="wrapper">
   <mat-card>
-      <h1>Edit Project</h1>
-      <form [formGroup]="updateForm" class="edit-form">
-          <mat-form-field class="w100">
-            <input matInput placeholder="Project Name" formControlName="name" #name>
-          </mat-form-field>  
-          <mat-form-field class="w100">
-            <input matInput placeholder="Description" formControlName="subtitle" #subtitle>
-          </mat-form-field>
-          <mat-form-field class="w100">
-            <input matInput placeholder="Status" formControlName="status" #status>
-          </mat-form-field>
-          <mat-form-field class="w100">
-            <input matInput placeholder="Author" formControlName="author" #author readonly>
-          </mat-form-field>
-          <mat-form-field class="w100">
-            <input matInput placeholder="Date" formControlName="create_date" readonly>
-          </mat-form-field>
-          <button type="submit" (click)="updateProject(updateForm.value)" mat-raised-button class="mat-primary">Save</button>
-          <a routerLink="/project-list">
-            <button mat-raised-button class="mat-primary">Cancel</button>
-          </a>
-      </form>
+    <h1>Edit Project</h1>
+    <form [formGroup]="updateForm" class="edit-form">
+      <input matInput style="visibility: hidden" formControlName="id" #id />
+      <mat-form-field class="w100">
+        <input
+          matInput
+          placeholder="Project Name"
+          formControlName="name"
+          #name
+        />
+      </mat-form-field>
+      <mat-form-field class="w100">
+        <input
+          matInput
+          placeholder="Description"
+          formControlName="subtitle"
+          #subtitle
+        />
+      </mat-form-field>
+      <mat-form-field class="w100">
+        <input matInput placeholder="Status" formControlName="status" #status />
+      </mat-form-field>
+      <mat-form-field class="w100">
+        <input
+          matInput
+          placeholder="Author"
+          formControlName="author"
+          #author
+          readonly
+        />
+      </mat-form-field>
+      <mat-form-field class="w100">
+        <input
+          matInput
+          placeholder="Date"
+          formControlName="create_date"
+          readonly
+        />
+      </mat-form-field>
+      <button
+        type="submit"
+        (click)="updateProject(updateForm.value)"
+        mat-raised-button
+        class="mat-primary"
+      >
+        Save
+      </button>
+      <a routerLink="/project-list">
+        <button mat-raised-button class="mat-primary">Cancel</button>
+      </a>
+    </form>
   </mat-card>
 </div>

@@ -31,6 +31,7 @@ export class ProjectEditComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get("id");
     this.projectService.getProjectById(id).subscribe((project) => {
       this.project = project;
+      this.updateForm.get("id").setValue(this.project.id);
       this.updateForm.get("name").setValue(this.project.name);
       this.updateForm.get("subtitle").setValue(this.project.subtitle);
       this.updateForm.get("author").setValue(this.project.author);
@@ -45,6 +46,7 @@ export class ProjectEditComponent implements OnInit {
 
   createForm() {
     this.updateForm = this.fb.group({
+      id: null,
       name: ["", Validators.required],
       subtitle: "",
       author: "",
@@ -53,9 +55,9 @@ export class ProjectEditComponent implements OnInit {
     });
   }
 
-  updateProject(project) {
-    project.id = Number(this.id);
-    this.projectService.updateProject(project);
-    this.router.navigate(["/project-list"]);
+  updateProject(project: Project): void {
+    this.projectService
+      .updateProject(project)
+      .subscribe(() => this.router.navigate(["/project-list"]));
   }
 }
