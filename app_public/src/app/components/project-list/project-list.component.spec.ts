@@ -45,7 +45,7 @@ describe("ProjectListComponent", () => {
       this.projects.splice(0, 1, project);
     },
     deleteProject: function (project: Project | number) {
-      this.projects = [];
+      this.projects.splice(0, 1);
     },
   };
 
