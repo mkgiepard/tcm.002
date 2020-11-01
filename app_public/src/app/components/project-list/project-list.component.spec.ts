@@ -22,16 +22,8 @@ describe("ProjectListComponent", () => {
   let component: ProjectListComponent;
   let fixture: ComponentFixture<ProjectListComponent>;
 
-  const projectServiceStub = {
-    projects: [
-      {
-        id: 1,
-        name: "Project A",
-        status: "New",
-        author: "Mario Bros",
-        create_date: new Date("2019.11.12"),
-      },
-    ],
+  var projectServiceStub = {
+    projects: [],
     getProjects: function () {
       return of(this.projects);
     },
@@ -46,6 +38,7 @@ describe("ProjectListComponent", () => {
     },
     deleteProject: function (project: Project | number) {
       this.projects.splice(0, 1);
+      return of({});
     },
   };
 
@@ -73,12 +66,37 @@ describe("ProjectListComponent", () => {
   }));
 
   it("should be no projects if there is no data", () => {
-    projectServiceStub.projects = [];
     component.fetchProjects();
     expect(component.projects.length).toEqual(0);
   });
 
   it("should be projects if there are data", () => {
+    projectServiceStub.projects = [
+      {
+        id: 1,
+        name: "Project A",
+        status: "New",
+        author: "Mario Bros",
+        create_date: new Date("2019.11.12"),
+      },
+    ];
+    component.ngOnInit();
     expect(component.projects.length).toEqual(1);
+  });
+
+  it("should remove project on delete", () => {
+    projectServiceStub.projects = [
+      {
+        id: 1,
+        name: "Project A",
+        status: "New",
+        author: "Mario Bros",
+        create_date: new Date("2019.11.12"),
+      },
+    ];
+    component.ngOnInit();
+    expect(component.projects.length).toEqual(1);
+    component.deleteProject(1);
+    expect(component.projects.length).toEqual(0);
   });
 });
