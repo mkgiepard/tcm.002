@@ -19,7 +19,13 @@
     </ng-container>
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef>Title</th>
-      <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        (click)="expandedElement = expandedElement === element ? null : element"
+      >
+        {{ element.title }}
+      </td>
     </ng-container>
     <ng-container matColumnDef="priority">
       <th mat-header-cell *matHeaderCellDef>Priority</th>
@@ -66,10 +72,30 @@
         class="cell-center"
         style="width: 150px"
       >
-        <mat-icon mat-list-icon class="passed">done</mat-icon>
-        <mat-icon mat-list-icon class="failed">clear</mat-icon>
-        <mat-icon mat-list-icon class="blocked">pause</mat-icon>
-        <mat-icon mat-list-icon class="skipped">skip_next</mat-icon>
+        <mat-icon
+          mat-list-icon
+          (click)="updateStatus(element.id, 'passed')"
+          class="passed"
+          >done</mat-icon
+        >
+        <mat-icon
+          mat-list-icon
+          (click)="updateStatus(element.id, 'failed')"
+          class="failed"
+          >clear</mat-icon
+        >
+        <mat-icon
+          mat-list-icon
+          (click)="updateStatus(element.id, 'blocked')"
+          class="blocked"
+          >pause</mat-icon
+        >
+        <mat-icon
+          mat-list-icon
+          (click)="updateStatus(element.id, 'skipped')"
+          class="skipped"
+          >skip_next</mat-icon
+        >
         <mat-icon mat-list-icon>bug_report</mat-icon>
         <!-- <mat-icon mat-list-icon>save</mat-icon> -->
       </td>
@@ -99,7 +125,6 @@
       *matRowDef="let element; columns: columnsToDisplay; when: isTest"
       class="element-row"
       [class.expanded-row]="expandedElement === element"
-      (click)="expandedElement = expandedElement === element ? null : element"
     ></tr>
     <tr
       mat-row

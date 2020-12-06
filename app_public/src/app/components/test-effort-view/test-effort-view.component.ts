@@ -80,4 +80,12 @@ export class TestEffortViewComponent implements OnInit {
   getIconName(status: string): string {
     return this.statusMap.get(status);
   }
+
+  updateStatus(id: number, status: string) {
+    for (let i = 0; i < this.dataSource.length; i++) {
+      if ((<TestCase>this.dataSource[i]).id === id) {
+        (<TestCase>this.dataSource[i]).status = status;
+      }
+    }
+  }
 }

@@ -58,6 +58,7 @@ describe("ProjectListComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProjectListComponent);
     component = fixture.componentInstance;
+    projectServiceStub.projects = [];
     fixture.detectChanges();
   });
 
