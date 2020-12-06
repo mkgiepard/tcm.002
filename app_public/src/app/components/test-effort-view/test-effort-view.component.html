@@ -2,7 +2,7 @@
   <mat-card class="">
     <div *ngIf="testPlanData">
       <h1>{{ testPlanData.name }}</h1>
-      <span style="color: gray;">
+      <span style="color: gray">
         {{ testPlanData.author }} @ {{ testPlanData.create_date }}</span
       >
     </div>
@@ -32,7 +32,9 @@
         *matCellDef="let element"
         class="cell-center {{ element.status | lowercase }}"
       >
-        <mat-icon mat-list-icon>trip_origin</mat-icon>
+        <mat-icon mat-list-icon
+          >{{ getIconName(element.status | lowercase) }}
+        </mat-icon>
       </td>
     </ng-container>
     <ng-container matColumnDef="comment">
@@ -54,7 +56,7 @@
         mat-header-cell
         *matHeaderCellDef
         class="cell-center"
-        style="width: 150px;"
+        style="width: 150px"
       >
         Action
       </th>
@@ -62,7 +64,7 @@
         mat-cell
         *matCellDef="let element"
         class="cell-center"
-        style="width: 150px;"
+        style="width: 150px"
       >
         <mat-icon mat-list-icon class="passed">done</mat-icon>
         <mat-icon mat-list-icon class="failed">clear</mat-icon>

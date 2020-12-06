@@ -43,6 +43,13 @@ export class TestEffortViewComponent implements OnInit {
   testPlanData: TestPlan;
   dataSource: (TestCase | TestCaseGroup)[];
   expandedElement: TestCase | null;
+  statusMap = new Map([
+    ["new", "trip_origin"],
+    ["passed", "done"],
+    ["failed", "clear"],
+    ["blocked", "pause"],
+    ["skipped", "skip_next"],
+  ]);
 
   constructor(
     private teService: TestEffortService,
@@ -68,5 +75,9 @@ export class TestEffortViewComponent implements OnInit {
 
   isTest(index, item): boolean {
     return item.title ? true : false;
+  }
+
+  getIconName(status: string): string {
+    return this.statusMap.get(status);
   }
 }
