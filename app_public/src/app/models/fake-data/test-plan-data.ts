@@ -113,7 +113,7 @@ export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
 
 export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
   {
-    id: "1",
+    id: 1,
     name: "Test Plan A.001",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -121,7 +121,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     project_id: 1,
   },
   {
-    id: "2",
+    id: 2,
     name: "Test Plan B.002",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -129,7 +129,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     project_id: 1,
   },
   {
-    id: "3",
+    id: 3,
     name: "Test Plan C.003",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -137,7 +137,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     project_id: 1,
   },
   {
-    id: "4",
+    id: 4,
     name: "Test Plan D.001",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -145,7 +145,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     project_id: 2,
   },
   {
-    id: "5",
+    id: 5,
     name: "Test Plan E.002",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -153,7 +153,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     project_id: 2,
   },
   {
-    id: "6",
+    id: 6,
     name: "Test Plan F.003",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -161,7 +161,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     project_id: 3,
   },
   {
-    id: "7",
+    id: 7,
     name: "Test Plan G.001",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -169,7 +169,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     project_id: 4,
   },
   {
-    id: "8",
+    id: 8,
     name: "Test Plan H.002",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -177,7 +177,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     project_id: 5,
   },
   {
-    id: "9",
+    id: 9,
     name: "Test Plan I.003",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -185,7 +185,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     project_id: 5,
   },
   {
-    id: "10",
+    id: 10,
     name: "Test Plan J.001",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -193,7 +193,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     project_id: 5,
   },
   {
-    id: "11",
+    id: 11,
     name: "Test Plan K.001",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -201,7 +201,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
     project_id: 5,
   },
   {
-    id: "12",
+    id: 12,
     name: "Test Plan L.001",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -212,7 +212,7 @@ export const TEST_PLAN_DATA_MULTI: TestPlan[] = [
 
 export const TEST_PLAN_DATA_SELECTED: TestPlan[] = [
   {
-    id: "1",
+    id: 1,
     name: "Test Plan L.001",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -220,7 +220,7 @@ export const TEST_PLAN_DATA_SELECTED: TestPlan[] = [
     project_id: 1,
   },
   {
-    id: "2",
+    id: 2,
     name: "Test Plan M.002",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),

@@ -1,5 +1,5 @@
 export interface TestPlan {
-  id: string;
+  id: number;
   name: string;
   author: string;
   create_date: Date;
@@ -149,7 +149,7 @@ export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
 
 export const TEST_PLAN_DATA_SELECTED: TestPlan[] = [
   {
-    id: "1",
+    id: 1,
     name: "Test Plan L.001",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
@@ -157,7 +157,7 @@ export const TEST_PLAN_DATA_SELECTED: TestPlan[] = [
     project_id: 1,
   },
   {
-    id: "2",
+    id: 2,
     name: "Test Plan M.002",
     author: "Mario Bros",
     create_date: new Date("2019-11-17"),
