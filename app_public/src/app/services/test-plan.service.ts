@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { TestCaseGroup, TestCase, TestPlan } from "../models/test-plan.model";
+import { TestCase, TestPlan } from "../models/test-plan.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of, combineLatest } from "rxjs";
 import { tap, catchError, map, filter } from "rxjs/operators";

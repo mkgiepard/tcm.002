@@ -2,7 +2,7 @@
   <mat-card class="">
     <div *ngIf="testPlanData">
       <h1>{{ testPlanData.name }}</h1>
-      <span style="color: gray;">
+      <span style="color: gray">
         {{ testPlanData.author }} @ {{ testPlanData.create_date }}</span
       >
     </div>
@@ -35,7 +35,7 @@
           "
         >
           <div class="element-description">
-            <pre style="font: inherit; margin: 0;">{{ element.steps }}</pre>
+            <pre style="font: inherit; margin: 0">{{ element.steps }}</pre>
           </div>
         </div>
       </td>
@@ -44,32 +44,15 @@
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
     <tr
       mat-row
-      *matRowDef="let element; columns: columnsToDisplay; when: isTest"
+      *matRowDef="let element; columns: columnsToDisplay"
       class="element-row"
       [class.expanded-row]="expandedElement === element"
       (click)="expandedElement = expandedElement === element ? null : element"
     ></tr>
     <tr
       mat-row
-      *matRowDef="let row; columns: ['expandedDetail']; when: isTest"
+      *matRowDef="let row; columns: ['expandedDetail']"
       class="detail-row"
-    ></tr>
-
-    <!-- Group header -->
-    <ng-container matColumnDef="groupHeader">
-      <td
-        colspan="999"
-        mat-cell
-        *matCellDef="let groupBy"
-        class="element-group"
-      >
-        {{ groupBy.groupIndex }}. {{ groupBy.groupName }}
-      </td>
-    </ng-container>
-
-    <tr
-      mat-row
-      *matRowDef="let row; columns: ['groupHeader']; when: isGroup"
     ></tr>
   </table>
   <!-- TODO: https://stackblitz.com/edit/angular-material-addrow-example -->

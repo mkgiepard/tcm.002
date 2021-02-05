@@ -1,7 +1,6 @@
-import { TestPlan, TestCase, TestCaseGroup } from "../test-plan.model";
+import { TestPlan, TestCase } from "../test-plan.model";
 
-export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
-  { groupIndex: "1.1", groupName: "Functional > CUJ", isGroupBy: true },
+export const TEST_CASES_DATA: TestCase[] = [
   {
     index: 1,
     title: "Verify if a User can sign in with a newly created account",
@@ -18,18 +17,16 @@ export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
     steps:
       "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
   },
-  { groupIndex: "1.2", groupName: "Functional > non CUJ", isGroupBy: true },
   {
-    index: 1,
+    index: 3,
     title: "Verify event recurring event creation with custom recurring rule",
     priority: "P2",
     status: "NEW",
     steps:
       "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
   },
-  { groupIndex: "1.3", groupName: "Functional > Error Cases", isGroupBy: true },
   {
-    index: 1,
+    index: 4,
     title: "Verify event update with a start time before end time",
     priority: "P3",
     status: "NEW",
@@ -37,21 +34,15 @@ export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
       "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
   },
   {
-    groupIndex: "1.4",
-    groupName: "Functional > Corner Cases",
-    isGroupBy: true,
-  },
-  {
-    index: 1,
+    index: 5,
     title: "Verify recurring event exception update",
     priority: "P4",
     status: "NEW",
     steps:
       "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
   },
-  { groupIndex: "2", groupName: "Layout", isGroupBy: true },
   {
-    index: 1,
+    index: 6,
     title: "Verify create bubble with long strings",
     priority: "P5",
     status: "NEW",
@@ -59,25 +50,23 @@ export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
       "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
   },
   {
-    index: 2,
+    index: 7,
     title: "Verify month view on HD resolution screen",
     priority: "P6",
     status: "NEW",
     steps:
       "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
   },
-  { groupIndex: "3", groupName: "Navigation", isGroupBy: true },
   {
-    index: 1,
+    index: 8,
     title: "Verify Back button funtionlity on create event bubble",
     priority: "P7",
     status: "NEW",
     steps:
       "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
   },
-  { groupIndex: "4", groupName: "A11y", isGroupBy: true },
   {
-    index: 1,
+    index: 9,
     title: "Check CUJ in a11y mode",
     priority: "P8",
     status: "NEW",
@@ -85,16 +74,15 @@ export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
       "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
   },
   {
-    index: 2,
+    index: 10,
     title: "Check UI with a11y color inspector",
     priority: "P9",
     status: "NEW",
     steps:
       "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
   },
-  { groupIndex: "5", groupName: "Performance", isGroupBy: true },
   {
-    index: 1,
+    index: 11,
     title: "Check the app loading time with enormous set of data",
     priority: "P10",
     status: "NEW",
@@ -102,7 +90,7 @@ export const TEST_CASES_DATA: (TestCase | TestCaseGroup)[] = [
       "Preconditions: xxxxxxxxxxxxxxxxxxxx; Step 1: aaaaaaaa; Step 2: bbbbbbbb; Step 3: ccccccc",
   },
   {
-    index: 2,
+    index: 12,
     title: "zzz Check the app loading time with enormous set of data",
     priority: "P10",
     status: "NEW",

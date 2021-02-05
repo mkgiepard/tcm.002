@@ -6,11 +6,7 @@ import {
   transition,
   trigger,
 } from "@angular/animations";
-import {
-  TestPlan,
-  TestCase,
-  TestCaseGroup,
-} from "../../models/test-plan.model";
+import { TestPlan, TestCase } from "../../models/test-plan.model";
 import { ActivatedRoute } from "@angular/router";
 import { TestPlanService } from "../../services/test-plan.service";
 
@@ -33,7 +29,7 @@ export class TestPlanViewComponent implements OnInit {
   displayedColumns: string[] = ["index", "title", "priority", "status"];
   columnsToDisplay = ["index", "title", "priority", "status"];
   testPlanData: TestPlan;
-  dataSource: (TestCase | TestCaseGroup)[];
+  dataSource: TestCase[];
 
   expandedElement: TestCase | null;
   constructor(
@@ -51,13 +47,5 @@ export class TestPlanViewComponent implements OnInit {
       this.testPlanData = data;
       this.dataSource = data.testCases;
     });
-  }
-
-  isGroup(index, item): boolean {
-    return item.groupIndex ? true : false;
-  }
-
-  isTest(index, item): boolean {
-    return item.title ? true : false;
   }
 }

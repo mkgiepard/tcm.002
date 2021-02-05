@@ -4,10 +4,10 @@
       <div class="card-content">
         <h2>TestPlan editor</h2>
         <div class="wrapper-justify">
-          <mat-form-field style="width: 40%; padding-right: 10px;">
+          <mat-form-field style="width: 40%; padding-right: 10px">
             <input matInput placeholder="TestPlan Name" />
           </mat-form-field>
-          <mat-form-field style="width: 40%; padding-right: 20px;">
+          <mat-form-field style="width: 40%; padding-right: 20px">
             <mat-label>Author:</mat-label>
             <mat-select>
               <mat-option value="0">-- Please Select --</mat-option>
@@ -26,36 +26,8 @@
     <mat-card>
       <div><h2>TestCase editor</h2></div>
       <mat-divider></mat-divider>
-      <div class="box">
-        <p>Create new TestCaseGroup</p>
-        <mat-form-field class="w100">
-          <mat-label>Parent TestCaseGroup:</mat-label>
-          <mat-select [(ngModel)]="selectedGroup" name="group">
-            <mat-option *ngFor="let group of groups" [value]="group.name">
-              {{ group.name }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="w100">
-          <input matInput placeholder="TestGroup Name" [(ngModel)]="tg.name" />
-        </mat-form-field>
-        <div class="wrapper-right">
-          <button mat-raised-button color="primary" (click)="addGroup()">
-            ADD
-          </button>
-        </div>
-      </div>
-      <mat-divider></mat-divider>
       <div class="box" *ngIf="tc">
         <p>Create new TestCase</p>
-        <mat-form-field class="w100">
-          <mat-label>TestCaseGroup:</mat-label>
-          <mat-select [(ngModel)]="selectedGroupIdForTC" name="group">
-            <mat-option *ngFor="let group of groups" [value]="group.id">
-              {{ group.name }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
         <mat-form-field class="w100">
           <input matInput placeholder="TestCase Title" [(ngModel)]="tc.title" />
         </mat-form-field>

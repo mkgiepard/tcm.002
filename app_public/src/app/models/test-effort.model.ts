@@ -1,4 +1,4 @@
-import { TestCase, TestCaseGroup } from "./test-plan.model";
+import { TestCase } from "./test-plan.model";
 
 export interface TestEffort {
   id: number;
@@ -11,7 +11,7 @@ export interface TestEffort {
   failed: number;
   blocked: number;
   testPlanReference?: number[];
-  testCaseData?: { [testPlanId: number]: (TestCase | TestCaseGroup)[] };
+  testCaseData?: { [testPlanId: number]: TestCase[] };
 }
 
 // TestEffort should have:

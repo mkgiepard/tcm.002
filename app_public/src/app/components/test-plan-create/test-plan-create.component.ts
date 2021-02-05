@@ -6,11 +6,7 @@ import {
   transition,
   trigger,
 } from "@angular/animations";
-import {
-  TestPlan,
-  TestCase,
-  TestCaseGroup,
-} from "../../models/test-plan.model";
+import { TestPlan, TestCase } from "../../models/test-plan.model";
 // TODO: replace with TestPlanService
 import { TestEffortService } from "../../services/test-effort.service";
 
@@ -31,12 +27,6 @@ import { TestEffortService } from "../../services/test-effort.service";
 })
 export class TestPlanCreateComponent implements OnInit {
   columnsToDisplay = ["index", "title", "priority", "status", "action"];
-  tg: TestCaseGroup = {
-    id: 0,
-    index: "",
-    name: "",
-    isGroupBy: true,
-  };
   tc: TestCase = {
     id: 0,
     index: -1,
@@ -45,8 +35,7 @@ export class TestPlanCreateComponent implements OnInit {
     status: "NEW",
     steps: "",
   };
-  groups: TestCaseGroup[];
-  testCaseData: (TestCase | TestCaseGroup)[];
+  testCaseData: TestCase[];
   testPlanData = {
     testCases: this.testCaseData,
   };
@@ -65,35 +54,15 @@ export class TestPlanCreateComponent implements OnInit {
     this.teService.getTestData(1).subscribe((data) => {
       this.testCaseData = data;
     });
-    this.teService.getTestGroupsByTestPlanId(1).subscribe((data) => {
-      this.groups = data;
-    });
-  }
-
-  addGroup(): void {
-    const id = this.testCaseData.length + 1;
-    const x: TestCaseGroup = {
-      index: "1." + id,
-      name: `${this.selectedGroup} > ${this.tg.name}`,
-      isGroupBy: true,
-    };
-    this.testCaseData = this.testCaseData.concat(x);
-    this.tg = {
-      groupIndex: "",
-      groupName: "",
-      isGroupBy: true,
-    };
   }
 
   addTestCase(): void {
-    const id = this.getNextTCindexForGroup(this.selectedGroupIdForTC);
     const x: TestCase = {
-      index: id,
+      index: this.testCaseData.length + 1,
       title: this.tc.title,
       priority: this.tc.priority,
       status: "NEW",
       steps: this.tc.steps,
-      group_id: this.selectedGroupIdForTC,
     };
     this.testCaseData = this.testCaseData.concat(x);
     this.tc = {
@@ -103,14 +72,6 @@ export class TestPlanCreateComponent implements OnInit {
       status: "NEW",
       steps: "",
     };
-  }
-
-  getNextTCindexForGroup(groupId: number) {
-    let counter = 0;
-    for (let i = 0; i < this.testCaseData.length; i++) {
-      if ((<TestCase>this.testCaseData[i]).group_id === groupId) counter++;
-    }
-    return counter + 1;
   }
 
   isGroup(index, item): boolean {

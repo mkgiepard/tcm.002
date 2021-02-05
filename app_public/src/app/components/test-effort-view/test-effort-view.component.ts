@@ -6,11 +6,7 @@ import {
   transition,
   trigger,
 } from "@angular/animations";
-import {
-  TestPlan,
-  TestCase,
-  TestCaseGroup,
-} from "../../models/test-plan.model";
+import { TestPlan, TestCase } from "../../models/test-plan.model";
 import { TestEffortService } from "../../services/test-effort.service";
 import { TestPlanService } from "../../services/test-plan.service";
 import { Observable } from "rxjs";
@@ -41,7 +37,7 @@ export class TestEffortViewComponent implements OnInit {
   ];
   groupColumnsToDisplay = ["groupHeader", "comment", "action"];
   testPlanData: TestPlan;
-  dataSource: (TestCase | TestCaseGroup)[];
+  dataSource: TestCase[];
   expandedElement: TestCase | null;
   statusMap = new Map([
     ["new", "trip_origin"],
